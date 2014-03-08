@@ -41,7 +41,7 @@
             $set = implode(",", array_keys($addParams));
             $val = array_values($addParams);
             $prepare = rtrim(str_repeat('?,', count($addParams)), ',');
-            $sql = sprintf("INSERT INTO %s SET (%s) VALUES (%s)", $table, $set, $prepare);
+            $sql = sprintf("INSERT INTO %s (%s) VALUES (%s)", $table, $set, $prepare);
             $cmd = $this->db->prepare($sql);
             return $cmd->execute($val);
         }
