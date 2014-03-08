@@ -2,9 +2,6 @@
 
 require('../libs/database.php');
 
-    // $objDb->insert("items", array("id" => "321", "price" => "1234"));
-    // $objDb->select("SELECT * FROM items WHERE id > ?", array("1"));
-
 $objDb = new db_util();
 if (count($_POST) != 0) {
 var_dump($_POST);
@@ -23,13 +20,13 @@ var_dump($_POST);
 	$image_url = '';
 	$addParams = array(
 		"contributor"	=> $contributor,
-	//	"speaker"		=> $speaker,
+		"speaker"		=> $speaker,
 		"meigen_text"	=> $meigen_text,
-	//	"unit_name"		=> $unit_name,
-	//	"situation"		=> $situation,
-	//	"font"			=> $font,
-	//	"member_id"		=> $member_id,
-	//	"image_url"		=> $image_url
+		"unit_name"		=> $unit_name,
+		"situation"		=> $situation,
+		"font"			=> $font,
+		"member_id"		=> $member_id,
+		"image_url"		=> $image_url
 	);
 
 	var_dump($objDb->insert("meigens", $addParams));
@@ -38,28 +35,8 @@ var_dump($_POST);
 	exit();
 }
 
-
-// if (isset($_POST)) {
-
-// 	$meigen_id = 'SELECT COUNT(*) FROM meigens'
-	
-// 	$query = 'SELECT COUNT(*) FROM meigens';
-// 	$rnum = mysql_query($query);
-// 	list($meigen_id) = mysql_fetch_row($rnum);
-
-
-
-
-	// print('<p>' . $meigen_text . '</p>');
-	// print('<p>' . $situation . '</p>');
-	// print('<p>' . $font . '</p>');
-
-// 	$sql = 'INSERT INTO meigens (meigen_id, contributor, speaker, meigen_text, unit_name, situation, font, member_id, image_url) VALUES ($meigen_id, $contributor, $speaker, $meigen_text, $unit_name, $situation, $font, $member_id, $image_url)';
-// 	$result_flag = mysql_query($sql);
-
-// }
-
 ?>
+
 <!DOCTYPE html>
 <html>
 

@@ -1,6 +1,6 @@
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ ./auth/login.php [QSA,L]
-php_value auto_prepend_file /var/www/meigenkun/auth/login_filter.php 
+# RewriteRule ^(.*)$ ./auth/login.php [QSA,L]
+# php_value auto_prepend_file /var/www/meigenkun/auth/login_filter.php 
 
