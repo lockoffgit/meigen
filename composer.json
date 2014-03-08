@@ -1,0 +1,7 @@
+{
+    "require":{
+        "opauth/opauth": "*",
+        "opauth/facebook": "*",
+        "monolog/monolog": "*"
+    }
+}
