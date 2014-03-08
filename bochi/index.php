@@ -1,3 +1,9 @@
+<?php
+require('../libs/database.php');
+
+$graves = ["grave_id" => "1", "meigen_text" => "大は小をかねない", "speaker" => "富田", "contributor" => '上原', 'killer' => 'みはら', 'together' => '3']; 
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
