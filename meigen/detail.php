@@ -1,5 +1,5 @@
 <?php
-$dsn = 'mysql:dbname=meigen_db host=localhost';
+$dsn = "mysql:host=127.0.0.1;dbname=meigen_db"; 
 $user = 'meigen_user';
 $password = 'vwzJ7F4u';
 
@@ -10,18 +10,16 @@ try {
 	die();
 }
 
-$stmt = $pdo->prepare('SELECT * FROM meigen');
-$stmt->bindValue(':number1', 1, PDO::PARAM_INT);
-$stmt->bindValue(':number2', 5, PDO::PARAM_INT);
+$params = array_merge($_POST, $_GET);
+
+$stmt = $pdo->prepare('select * from meigens where meigen_id = :meigenId');
+$stmt->bindValue(':meigenId', 1, PDO::PARAM_INT);
 if (!$stmt->execute()) {
 	$info = $stmt->errorInfo();
 	exit($info[2]);
 }
-
-while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
-	echo '<p>' . $data['contentsid'] . ':' . $data['contentsname'] . "</p>\n";
-}
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
@@ -49,6 +47,31 @@ while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			<h2>だいたいわかりましたページ</h2>
 
 			<div>
+<?php
+while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
+	echo '<p>' . htmlspecialchars($data['meigen_id'], ENT_QUOTES, 'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($data['contributor'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($data['speaker'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($data['meigen_text'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($data['unit_name'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($data['situation'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($data['font'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($data['member_id'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($data['image_url'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($data['created_at'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($data['modified_at'], ENT_QUOTES,'UTF-8') . '</p>';
+}
+
+
+
+
+
+
+
+
+
+
+?>
 				<a href="../meigen/meigen.php">名言</a>
 				<a href="../meigen/ymt_nyuu.php">使ってみた登録</a>
 			</div>
