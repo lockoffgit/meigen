@@ -8,7 +8,7 @@
 
 <body>
 	<a href="../meigen/nyuu.php">にゅー</a>
-	<a href="../meigen/ymt_risuto.php">やってみた</a>
+	<a href="../meigen/try.php">やってみた</a>
 	<a href="../bochi/bochi.php">ぼち</a>
 </body>
 

@@ -12,7 +12,7 @@
 
 	<p>大は小をかねない</p>
 
-	<form action="ymt_risuto.php" method="post">
+	<form action="try.php" method="post">
 		<p>写真の選択: <input type="file" name="img" id="img" size="50" /></p>
 		<p>フォント: </p>
 		<p>
@@ -26,7 +26,7 @@
 	<br>
 
 	<a href="../meigen/meigen.php">めいげん</a>
-	<a href="../meigen/ymt_risuto.php">やってみたリスト</a>
+	<a href="../meigen/try.php">やってみたリスト</a>
 </body>
 
 </html>
