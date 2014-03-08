@@ -21,6 +21,6 @@ on meigen_db.*
 
 flush privileges;
 
-// alter user meigen_user quota unlimited on USERS;
+-- alter user meigen_user quota unlimited on USERS;
 
 
