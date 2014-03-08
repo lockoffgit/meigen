@@ -8,7 +8,7 @@
 
 ## Creaters
 
-Team GTGT @lockoff  
+Team GTGT @[lockoff](http://www.lockon.co.jp/lockoff/ "ロックオフ")  
  Project Manager: Para-san  
  Member：Uekara Mihara  
  and others.  
