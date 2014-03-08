@@ -30,6 +30,8 @@
         WHERE Mem.del_flag <> 1
 
         GROUP BY Iot.meigen_id , Del.meigen_id
+        
+        ORDER BY updated_at DESC
 
         LIMIT ?, ".LIST_MAX."
     ";
