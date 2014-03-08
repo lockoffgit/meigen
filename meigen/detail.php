@@ -6,7 +6,7 @@ $params = array_merge($_POST, $_GET);
 $objDb = new db_util();
 
 $meigen = array_pop($objDb->select('select * from meigens where meigen_id = ?', [ $params['meigen_id'] ]));
-$tries = $objDb->select('select * from tries where meigen_id = ?', [ $meigen['meigen_id'] ]);
+$tries = $objDb->select('select * from tries where meigen_id = ? order by try_id desc', [ $meigen['meigen_id'] ]);
 ?><!DOCTYPE html>
 <html lang="ja">
 	<head>
