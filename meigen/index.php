@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="description" content="">
-<link type="text/css" rel="stylesheet" href="./css/main.css" />
+<link type="text/css" rel="stylesheet" href="../css/main.css" />
 <title>名言くん（仮）</title>
 </head>
 
@@ -84,9 +84,9 @@
 	</div>
 	<div class="ha-area">
 		<ul>
-	    <li><a href="#"><img src="./img/1.jpg" alt="はあ？"></a></li>
-	    <li><a href="#"><img src="./img/2.jpg" alt="ImpactOnTheWorld"></a></li>
-	    <li><a href="#"><img src="./img/3.jpg" alt="雰囲気わかりました"></a></li>
+	    <li><a href="#"><img src="../img/1.jpg" alt="はあ？"></a></li>
+	    <li><a href="#"><img src="../img/2.jpg" alt="ImpactOnTheWorld"></a></li>
+	    <li><a href="#"><img src="../img/3.jpg" alt="雰囲気わかりました"></a></li>
 	    </ul>
 	</div>
     </div>
