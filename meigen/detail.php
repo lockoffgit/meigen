@@ -1,26 +1,13 @@
 <?php
-$dsn = "mysql:host=127.0.0.1;dbname=meigen_db"; 
-$user = 'meigen_user';
-$password = 'vwzJ7F4u';
-
-try {
-	$pdo = new PDO($dsn, $user, $password);
-} catch (PDOException $e) {
-	print('Error:'.$e->getMessage());
-	die();
-}
+require_once('../libs/database.php');
 
 $params = array_merge($_POST, $_GET);
 
-$stmt = $pdo->prepare('select * from meigens where meigen_id = :meigenId');
-$stmt->bindValue(':meigenId', 1, PDO::PARAM_INT);
-if (!$stmt->execute()) {
-	$info = $stmt->errorInfo();
-	exit($info[2]);
-}
-?>
+$objDb = new db_util();
 
-<!DOCTYPE html>
+$meigen = array_pop($objDb->select('select * from meigens where meigen_id = ?', [ $params['meigen_id'] ]));
+$tries = $objDb->select('select * from tries where meigen_id = ?', [ $meigen['meigen_id'] ]);
+?><!DOCTYPE html>
 <html lang="ja">
 	<head>
 		<meta charset="utf-8" />
@@ -47,33 +34,37 @@ if (!$stmt->execute()) {
 			<h2>だいたいわかりましたページ</h2>
 
 			<div>
+				<h3>詳細</h3>
 <?php
-while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
-	echo '<p>' . htmlspecialchars($data['meigen_id'], ENT_QUOTES, 'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($data['contributor'], ENT_QUOTES,'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($data['speaker'], ENT_QUOTES,'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($data['meigen_text'], ENT_QUOTES,'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($data['unit_name'], ENT_QUOTES,'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($data['situation'], ENT_QUOTES,'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($data['font'], ENT_QUOTES,'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($data['member_id'], ENT_QUOTES,'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($data['image_url'], ENT_QUOTES,'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($data['created_at'], ENT_QUOTES,'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($data['modified_at'], ENT_QUOTES,'UTF-8') . '</p>';
-}
-
-
-
-
-
-
-
-
-
-
+echo '<p>' . htmlspecialchars($meigen['meigen_id'], ENT_QUOTES, 'UTF-8') . '</p>';
+echo '<p>' . htmlspecialchars($meigen['contributor'], ENT_QUOTES,'UTF-8') . '</p>';
+echo '<p>' . htmlspecialchars($meigen['speaker'], ENT_QUOTES,'UTF-8') . '</p>';
+echo '<p>' . htmlspecialchars($meigen['meigen_text'], ENT_QUOTES,'UTF-8') . '</p>';
+echo '<p>' . htmlspecialchars($meigen['unit_name'], ENT_QUOTES,'UTF-8') . '</p>';
+echo '<p>' . htmlspecialchars($meigen['situation'], ENT_QUOTES,'UTF-8') . '</p>';
+echo '<p>' . htmlspecialchars($meigen['font'], ENT_QUOTES,'UTF-8') . '</p>';
+echo '<p>' . htmlspecialchars($meigen['member_id'], ENT_QUOTES,'UTF-8') . '</p>';
+echo '<p>' . htmlspecialchars($meigen['image_url'], ENT_QUOTES,'UTF-8') . '</p>';
+echo '<p>' . htmlspecialchars($meigen['created_at'], ENT_QUOTES,'UTF-8') . '</p>';
+echo '<p>' . htmlspecialchars($meigen['modified_at'], ENT_QUOTES,'UTF-8') . '</p>';
 ?>
-				<a href="../meigen/meigen.php">名言</a>
-				<a href="../meigen/ymt_nyuu.php">使ってみた登録</a>
+
+				<h3>だいたいわかりました</h3>
+<?php
+foreach ($tries as $try) {
+	echo '<p>' . htmlspecialchars($try['contributor'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($try['meigen_id'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($try['unit_name'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($try['font'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($try['member_id'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($try['image_url'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($try['created_at'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . htmlspecialchars($try['modified_at'], ENT_QUOTES,'UTF-8') . '</p>';
+}
+?>
+
+				<a href="../meigen/index.php">名言</a>
+				<a href="../meigen/try.php?meigen_id=<?php echo htmlspecialchars($meigen['meigen_id'], ENT_QUOTES, 'UTF-8'); ?>">使ってみた登録</a>
 			</div>
 		</div>
 
