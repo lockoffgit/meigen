@@ -100,9 +100,7 @@ $groups = json_decode($result);
 
 $inGroup = false;
 foreach ($groups->data as $group) {
-			echo '_' . $group->id . "_\n";
 	if ($group->id == 1415888765328395) {
-		echo "グループに所属\n";
 		$inGroup = true;
 		break;
 	}
@@ -114,17 +112,46 @@ if (!$inGroup) {
 	exit();
 }
 
+// ログインユーザの社員情報を取得する	
+session_start();
+$facebook_user_id = $response['auth']['uid'];
+$_SESSION['facebook_user_id'] = $facebook_user_id;
 $log->addInfo("http://localhost" . $_SESSION['redirect_to']);
 
-setcookie('login_token','hoge',time()+60*60, "/");
-header("Location: index.php",true,303);
+$sql = <<<EOB
+SELECT
+	member_id,
+	name,
+	handle_name,
+	unit_name
+FROM
+	members INNER JOIN units ON units.unit_id = members.unit_id
+WHERE
+	facebook_user_id = ?
+	AND members.del_flag = 0
+EOB;
+
+require_once('./libs/database.php');
+$objDb = new db_util();
+$result = $objDb->select($sql, array($facebook_user_id));
+
+if (count($result) == 0) {
+	// 社員マスタに存在しないのでアプリを利用させない。
+	echo "利用できません。<br/>";
+	exit();
+}
+
+$userInfo['facebook_user_id'] = $facebook_user_id;
+$userInfo['member_id'] = $result[0]['member_id'];
+$userInfo['name'] = $result[0]['name'];
+$userInfo['handle_name'] = $result[0]['handle_name'];
+$userInfo['unit_name'] = $result[0]['unit_name'];
+
+// cookieに認証情報を登録
+setcookie('login_token', $userInfo['facebook_user_id'] . "@" . $userInfo['member_id']);
+setcookie('userInfo', $userInfo);
+header("Location: /meigen/index.php",true,303);
 ?>
 <html>
 	<head><meta charset="utf-8"></head>
-<pre>
-
-</pre>
-
-hoge
-
 </html>
