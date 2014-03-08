@@ -23,9 +23,11 @@
             return($stmt->execute($params));
         }
   
-        function select($query, $params){
+        function select($query, $params=array('')){
             $stmt = $this->db->prepare($query);
-            $stmt->execute($params);
+            if(count($params) > 0 ) {
+                $stmt->execute($params);
+            }
             if($result = $stmt->fetchAll()){
                 return $result;
             }else{
