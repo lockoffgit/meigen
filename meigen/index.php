@@ -1,12 +1,34 @@
 <!DOCTYPE html>
-<html>
-
+<html class="no_js" lang="ja">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<title>TOP - 名言くん</title>
+<meta charset="UTF-8" />
+<meta name="description" content="">
+<link type="text/css" rel="stylesheet" href="./css/main.css" />
+<title>名言くん（仮）</title>
 </head>
 
 <body>
+
+<div class="container">
+
+<div class="navbar">
+  <div class="navbar-header">
+    <div class="navbar-brand">
+      <a href="index.html">名言くん</a>
+    </div>
+    <div class="navbar-entry"><a href="#">投稿する</a></div>
+  </div>
+</div>
+
+<div class="navbar-collapse collapse">
+  <ul class="navbar-nav">
+    <li><a href="work.html">RANKING</a></li>
+    <li><a href="about.html">CALLENDER</a></li>
+    <li><a href="blog.html">SHINIKAKE</a></li>
+    <li><a href="contact.html">BOCHI</a></li>
+  </ul>
+</div>
+
 <?php
     require_once("../libs/database.php");
     define("LIST_MAX", 10);
@@ -38,20 +60,42 @@
     $page_no = $_GET['page_no'] ? ($_GET['page_no'] - 1) * LIST_MAX : 0;
     $params[] = $page_no;
     $arrMeigens = $objDb->select($query, $params);
-    
+?>
+
+<!--名言ここから-->
+<?php
     foreach($arrMeigens as $meigens){
 ?>
-    <div class="meigens">
-        <img src="<?php echo $meigens['meigen_image_url']; ?>" width="100%" />
-        <p><?php echo date("Y.m.d", $meigens['created_at']); ?></p>
-        <p><?php echo $meigens['speaker']; ?></p>
-        <p><a href="./try.php?meigen_id=<?php $meigens['meigen_id']; ?>">だいたいわかりました</a></p>
+    <div class="meigen">
+	<div class="meigen-area">
+		<div class="meigen-photo"><img src="<?php echo $meigens['meigen_image_url']; ?>"></div>
+		<div class="meigen-txt">
+		  	<div class="meigen-detail">
+			<p><?php echo nl2br($meigens['meigen_text']); ?></p>
+			<p>
+                            <?php echo $meigens['speaker']; ?><br>
+                            <span class="day">
+                                <?php echo $meigens['created_at']; ?>
+                            </span>
+                        </p>
+			<div>●●●</div>
+		  </div>
+		</div>
+	</div>
+	<div class="ha-area">
+		<ul>
+	    <li><a href="#"><img src="./img/1.jpg" alt="はあ？"></a></li>
+	    <li><a href="#"><img src="./img/2.jpg" alt="ImpactOnTheWorld"></a></li>
+	    <li><a href="#"><img src="./img/3.jpg" alt="雰囲気わかりました"></a></li>
+	    </ul>
+	</div>
     </div>
 <?php
     }   // foreach
 ?>
+<!--名言ここまで-->
 
-    <a href="../meigen/">めいげん</a>
+</div>
 </body>
-
+    <a href="../meigen/">めいげん</a>
 </html>

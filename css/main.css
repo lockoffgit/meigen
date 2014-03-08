@@ -1,0 +1,210 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+ 
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+ 
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+ 
+/* tables still need 'cellspacing=&quot;0&quot;' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #333333;
+  background-color: #F2F2F2;
+}
+
+
+body {
+  margin: 0;
+}
+
+a {
+text-decoration: none;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+small {
+  font-size: 80%;
+}
+
+img {
+  border: 0;
+}
+
+.navbar {
+  background-color: #1ABC9C;
+  height: 60px;
+  padding: 30px 10px 0 10px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.navbar .navbar-brand {
+  float: left;
+}
+
+.navbar a {
+  color: #fff;
+}
+
+.navbar .navbar-entry {
+  float: right;
+}
+
+.navbar-collapse {
+ margin: 0 auto;
+  background-color: #fff;
+  height: 50px;
+  margin-bottom: 15px;
+}  
+
+.navbar-collapse {
+  max-height: 340px;
+  overflow-x: visible;
+  border-top: 1px solid transparent;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  -webkit-overflow-scrolling: touch;
+}
+
+.navbar-collapse li {
+ display:inline;
+ list-style:none;
+ padding-right: 10px;
+}  
+
+.navbar-collapse a {
+  color: #1ABC9C;
+  font-weight: bold;
+}
+
+.meigen {
+  width: 100%;
+  margin-bottom:15px;
+}
+
+.meigen-area {
+    zoom: 100%;
+}
+.meigen-area:after {
+    content: "";
+    clear: both;
+    height: 0;
+    display: block;
+    visibility: hidden;
+}
+
+.meigen-area {
+  background-color: #333;
+  color:#fff;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.meigen-area .meigen-photo {
+  float: left;
+  height: 200px;
+  width: 150px;
+  padding: 0px;
+}
+
+.meigen-area .meigen-txt {
+  float: left;
+  width: 150px;
+}
+
+.meigen-area .meigen-detail {
+  padding: 0 5px 0 8px;
+}
+
+.meigen-area .meigen-detail .day {
+  color: #999;
+}
+
+.ha-area {
+  font-size: 10px;
+  background-color: #fff;
+  width: 300px;
+  margin: 0 auto;
+}
+
+
+.ha-area {
+    zoom: 100%;
+}
+.ha-area:after {
+    content: "";
+    clear: both;
+    height: 0;
+    display: block;
+    visibility: hidden;
+}
+
+.ha-area ul{
+    margin:0;
+    padding:0;
+    width:300px;
+    overflow:hidden;
+}
+
+.ha-area li {
+ list-style:none;
+ width:98px;
+ float:left;
+}
+
+.ha-area li a {
+    display:block;
+    text-align:center;
+}  
+
+
