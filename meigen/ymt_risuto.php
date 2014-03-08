@@ -3,12 +3,12 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<title>やってみた</title>
+	<title>詳細</title>
 </head>
 
 <body>
-	<a href="../meigen/meigen.php">めいげん</a>
-	<a href="../meigen/ymt_nyuu.php">やってみた投稿</a>
+	<a href="../meigen/meigen.php">名言</a>
+	<a href="../meigen/ymt_nyuu.php">使ってみた登録</a>
 </body>
 
 </html>
