@@ -3,8 +3,9 @@ require('../libs/database.php');
 
 $objDb = new db_util();
 if (count($_POST) != 0) {
-//	$contributor = $_SESSION['facebook_user_id'];
-	$contributor = 'dummy-contributorr';
+	session_start();
+	$contributor = $_SESSION['facebook_user_id'];
+//	$contributor = 'dummy-contributorr';
 
 	$member_id = $_POST['speaker'];
 	$person = $objDb->select("SELECT name FROM members WHERE member_id=$member_id;");
@@ -17,7 +18,8 @@ if (count($_POST) != 0) {
 	$situation = $_POST['situation'];
 	$font = $_POST['font'];
 	$image_url = '';
-
+	$created_at = date("Y-m-d H:i:s");
+	$modified_at = $created_at;
 	$addParams = array(
 		"contributor"	=> $contributor,
 		"speaker"	=> $speaker,
@@ -27,11 +29,13 @@ if (count($_POST) != 0) {
 		"font"		=> $font,
 		"member_id"	=> $member_id,
 		"image_url"	=> $image_url,
+		"created_at" => $created_at,
+		"modified_at" => $modified_at,
 	);
 
 	$result = $objDb->insert("meigens", $addParams);
 
-	header("Location: ./");
+	header("Location: ./index.php");
 	exit();
 }
 
