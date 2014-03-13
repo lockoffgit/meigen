@@ -41,30 +41,30 @@ $tries = $objDb->select('select * from tries where meigen_id = ? order by try_id
 			<div>
 				<h3>詳細</h3>
 <?php
-echo '<p>' . htmlspecialchars($meigen['meigen_id'], ENT_QUOTES, 'UTF-8') . '</p>';
-echo '<p>' . htmlspecialchars($meigen['contributor'], ENT_QUOTES,'UTF-8') . '</p>';
-echo '<p>' . htmlspecialchars($meigen['speaker'], ENT_QUOTES,'UTF-8') . '</p>';
-echo '<p>' . htmlspecialchars($meigen['meigen_text'], ENT_QUOTES,'UTF-8') . '</p>';
-echo '<p>' . htmlspecialchars($meigen['unit_name'], ENT_QUOTES,'UTF-8') . '</p>';
-echo '<p>' . htmlspecialchars($meigen['situation'], ENT_QUOTES,'UTF-8') . '</p>';
-echo '<p>' . htmlspecialchars($meigen['font'], ENT_QUOTES,'UTF-8') . '</p>';
-echo '<p>' . htmlspecialchars($meigen['member_id'], ENT_QUOTES,'UTF-8') . '</p>';
-echo '<p>' . htmlspecialchars($meigen['image_url'], ENT_QUOTES,'UTF-8') . '</p>';
-echo '<p>' . htmlspecialchars($meigen['created_at'], ENT_QUOTES,'UTF-8') . '</p>';
-echo '<p>' . htmlspecialchars($meigen['modified_at'], ENT_QUOTES,'UTF-8') . '</p>';
+echo '<p>' . nl2br(htmlspecialchars($meigen['meigen_id'], ENT_QUOTES, 'UTF-8')) . '</p>';
+echo '<p>' . nl2br(htmlspecialchars($meigen['contributor'], ENT_QUOTES,'UTF-8')) . '</p>';
+echo '<p>' . nl2br(htmlspecialchars($meigen['speaker'], ENT_QUOTES,'UTF-8')) . '</p>';
+echo '<p>' . nl2br(htmlspecialchars($meigen['meigen_text'], ENT_QUOTES,'UTF-8')) . '</p>';
+echo '<p>' . nl2br(htmlspecialchars($meigen['unit_name'], ENT_QUOTES,'UTF-8')) . '</p>';
+echo '<p>' . nl2br(htmlspecialchars($meigen['situation'], ENT_QUOTES,'UTF-8')) . '</p>';
+echo '<p>' . nl2br(htmlspecialchars($meigen['font'], ENT_QUOTES,'UTF-8')) . '</p>';
+echo '<p>' . nl2br(htmlspecialchars($meigen['member_id'], ENT_QUOTES,'UTF-8')) . '</p>';
+echo '<p>' . nl2br(htmlspecialchars($meigen['image_url'], ENT_QUOTES,'UTF-8')) . '</p>';
+echo '<p>' . nl2br(htmlspecialchars($meigen['created_at'], ENT_QUOTES,'UTF-8')) . '</p>';
+echo '<p>' . nl2br(htmlspecialchars($meigen['modified_at'], ENT_QUOTES,'UTF-8')) . '</p>';
 ?>
 
 				<h3>だいたいわかりました</h3>
 <?php
 foreach ($tries as $try) {
-	echo '<p>' . htmlspecialchars($try['contributor'], ENT_QUOTES,'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($try['meigen_id'], ENT_QUOTES,'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($try['unit_name'], ENT_QUOTES,'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($try['font'], ENT_QUOTES,'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($try['member_id'], ENT_QUOTES,'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($try['image_url'], ENT_QUOTES,'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($try['created_at'], ENT_QUOTES,'UTF-8') . '</p>';
-	echo '<p>' . htmlspecialchars($try['modified_at'], ENT_QUOTES,'UTF-8') . '</p>';
+	echo '<p>' . nl2br(htmlspecialchars($try['contributor'], ENT_QUOTES,'UTF-8')) . '</p>';
+	echo '<p>' . nl2br(htmlspecialchars($try['meigen_id'], ENT_QUOTES,'UTF-8')) . '</p>';
+	echo '<p>' . nl2br(htmlspecialchars($try['unit_name'], ENT_QUOTES,'UTF-8')) . '</p>';
+	echo '<p>' . nl2br(htmlspecialchars($try['font'], ENT_QUOTES,'UTF-8')) . '</p>';
+	echo '<p>' . nl2br(htmlspecialchars($try['member_id'], ENT_QUOTES,'UTF-8')) . '</p>';
+	echo '<p>' . nl2br(htmlspecialchars($try['image_url'], ENT_QUOTES,'UTF-8')) . '</p>';
+	echo '<p>' . nl2br(htmlspecialchars($try['created_at'], ENT_QUOTES,'UTF-8')) . '</p>';
+	echo '<p>' . nl2br(htmlspecialchars($try['modified_at'], ENT_QUOTES,'UTF-8')) . '</p>';
 }
 ?>
 
