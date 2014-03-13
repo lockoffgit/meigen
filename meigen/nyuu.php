@@ -6,16 +6,18 @@ if (count($_POST) != 0) {
 //	$contributor = $_SESSION['facebook_user_id'];
 	$contributor = 'dummy-contributorr';
 
-	$member_id = htmlspecialchars($_POST['speaker'], ENT_QUOTES);
+	$member_id = $_POST['speaker'];
 	$person = $objDb->select("SELECT name FROM members WHERE member_id=$member_id;");
 	foreach($person as $val){
-            $speaker = $val['name'];
+		$speaker = $val['name'];
 	}
-	$meigen_text = htmlspecialchars($_POST['meigen_text'], ENT_QUOTES);
-	$unit_name = htmlspecialchars($_POST['unit_name'], ENT_QUOTES);
-	$situation = htmlspecialchars($_POST['situation'], ENT_QUOTES);
-	$font = htmlspecialchars($_POST['font'], ENT_QUOTES);
+
+	$meigen_text = $_POST['meigen_text'];
+	$unit_name = $_POST['unit_name'];
+	$situation = $_POST['situation'];
+	$font = $_POST['font'];
 	$image_url = '';
+
 	$addParams = array(
 		"contributor"	=> $contributor,
 		"speaker"	=> $speaker,
@@ -24,7 +26,7 @@ if (count($_POST) != 0) {
 		"situation"	=> $situation,
 		"font"		=> $font,
 		"member_id"	=> $member_id,
-		"image_url"	=> $image_url
+		"image_url"	=> $image_url,
 	);
 
 	$result = $objDb->insert("meigens", $addParams);
