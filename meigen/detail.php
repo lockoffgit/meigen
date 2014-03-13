@@ -1,5 +1,5 @@
 <?php
-require_once('../libs/database.php');
+require_once('../libs/core.php');
 
 $params = array_merge($_POST, $_GET);
 

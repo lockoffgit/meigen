@@ -1,5 +1,5 @@
 <?php
-require('../libs/database.php');
+require('../libs/core.php');
 
 $objDb = new db_util();
 if (count($_POST) != 0) {
