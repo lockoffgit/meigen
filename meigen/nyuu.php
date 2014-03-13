@@ -27,6 +27,8 @@ if (count($_POST) != 0) {
 		"image_url"	=> $image_url
 	);
 
+	$result = $objDb->insert("meigens", $addParams);
+
 	header("Location: ./meigen.php");
 	exit();
 }
