@@ -70,11 +70,11 @@
 		  	<div class="meigen-detail">
 			<p><?php echo nl2br($meigens['meigen_text']); ?></p>
 			<p>
-                            <?php echo $meigens['speaker']; ?><br>
-                            <span class="day">
-                                <?php echo $meigens['created_at']; ?>
-                            </span>
-                        </p>
+				<?php echo $meigens['speaker']; ?><br>
+				<span class="day">
+					<?php echo $meigens['created_at']; ?>
+				</span>
+			</p>
 			<div>●●●</div>
 		  </div>
 		</div>
