@@ -16,7 +16,7 @@
     <div class="navbar-brand">
       <a href="index.html">名言くん</a>
     </div>
-    <div class="navbar-entry"><a href="#">投稿する</a></div>
+    <div class="navbar-entry"><a href="./nyuu.php">投稿する</a></div>
   </div>
 </div>
 
