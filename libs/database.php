@@ -4,7 +4,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-    require_once("core.php");
     /*
     $objDb = new db_util();
     $objDb->insert("items", array("id" => "321", "price" => "1234"));
@@ -46,6 +45,45 @@
             return $cmd->execute($val);
         }
         
+        function getMeigenList($page_no = 0){
+            $page_no = isset($_REQUEST['page_no']) ? ($_REQUEST['page_no'] * LIST_MAX) : 0;
+
+            $query = "
+            SELECT
+                mei.*
+                ,(
+                    SELECT
+                            COUNT(x.iotw_id)
+                        FROM
+                            iotws x
+                        WHERE
+                            x.meigen_id = mei.meigen_id
+                ) AS iotw_cnt
+                ,(
+                    SELECT
+                            COUNT(x.delete_id)
+                        FROM
+                            deletes x
+                        WHERE
+                            x.meigen_id = mei.meigen_id
+                ) AS delete_cnt
+                ,COALESCE(
+                    mei.image_url
+                    ,mem.image_url
+                ) AS meigen_image_url
+            FROM
+                meigens AS mei LEFT OUTER JOIN members mem
+                    ON (
+                    mei.member_id = mem.member_id
+                )
+            ORDER BY
+                mei.modified_at DESC
+                LIMIT " . $page_no . ", " . LIST_MAX . "
+            ";
+
+            $arrMeigens = $this->select($query);
+            return $arrMeigens;
+        }
     }
     
 ?>

@@ -207,4 +207,8 @@ img {
     text-align:center;
 }  
 
-
+#loading {
+    background-color: #ff0000;
+    display: none;
+    height: 100px;
+}

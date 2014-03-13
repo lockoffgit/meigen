@@ -1,50 +1,39 @@
-<?php
-    require_once("../libs/database.php");
-    define("LIST_MAX", 10);
-    $page_no = isset($_GET['page_no']) ? (($_GET['page_no'] - 1) * LIST_MAX) : 0;
-
-    $objDb = new db_util();
-    $query = "
-    SELECT
-        mei.*
-        ,(
-            SELECT
-                    COUNT(x.iotw_id)
-                FROM
-                    iotws x
-                WHERE
-                    x.meigen_id = mei.meigen_id
-        ) AS iotw_cnt
-        ,(
-            SELECT
-                    COUNT(x.delete_id)
-                FROM
-                    deletes x
-                WHERE
-                    x.meigen_id = mei.meigen_id
-        ) AS delete_cnt
-        ,COALESCE(
-            mei.image_url
-            ,mem.image_url
-        ) AS meigen_image_url
-    FROM
-        meigens AS mei LEFT OUTER JOIN members mem
-            ON (
-            mei.member_id = mem.member_id
-        )
-    ORDER BY
-        mei.modified_at DESC
-	LIMIT " . $page_no . ", 10
-    ";
-
-    $arrMeigens = $objDb->select($query);
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html class="no_js" lang="ja">
 <head>
 <meta charset="UTF-8" />
 <meta name="description" content="">
 <link type="text/css" rel="stylesheet" href="../css/main.css" />
 <title>名言くん（仮）</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="../js/jquery.bottom.js"></script>
+<script>
+$(function(){
+    var page_no = 1;
+    $(window).bottom({proximity: 0});
+    $(window).on("bottom", function(){
+        var obj = $(this);
+        if (!obj.data('loading')) {
+            obj.data('loading', true);
+            $("#loading").css("display", "block");
+
+            data = {page_no : page_no};
+            $.ajax({
+                url: "../ajax/more_meigen.php",
+                type: "POST",
+                data: data,
+                dataType: "text",
+                success: function(ret){
+                    $("#loading").css("display", "none");
+                    $("#meigen_box").append(ret);
+                    page_no++;
+                    obj.data('loading', false);
+                }
+            });
+        }
+    });
+})
+</script>
 </head>
 
 <body>
@@ -62,28 +51,32 @@
 
 <div class="navbar-collapse collapse">
   <ul class="navbar-nav">
-    <li><a href="work.html">RANKING</a></li>
-    <li><a href="about.html">CALLENDER</a></li>
-    <li><a href="blog.html">SHINIKAKE</a></li>
-    <li><a href="contact.html">BOCHI</a></li>
+    <li><a href="ranking.php">RANKING</a></li>
+    <li><a href="calendar.php">CALENDAR</a></li>
+    <li><a href="shinikake.php">SHINIKAKE</a></li>
+    <li><a href="bochi.php">BOCHI</a></li>
   </ul>
 </div>
 
-
+    <div id="meigen_box">
 <!--名言ここから-->
 <?php
-    foreach($arrMeigens as $meigens){
+    require_once("../libs/core.php");
+    $objDb = new db_util();
+    $arrMeigens = $objDb->getMeigenList();
+
+    foreach($arrMeigens as $meigen){
 ?>
     <div class="meigen">
 	<div class="meigen-area">
-		<div class="meigen-photo"><img src="<?php echo $meigens['meigen_image_url']; ?>"></div>
+		<div class="meigen-photo"><img src="<?php echo $meigen['meigen_image_url']; ?>"></div>
 		<div class="meigen-txt">
 		  	<div class="meigen-detail">
-			<p><?php echo nl2br($meigens['meigen_text']); ?></p>
+			<p><?php echo nl2br($meigen['meigen_text']); ?></p>
 			<p>
-				<?php echo $meigens['speaker']; ?><br>
+				<?php echo $meigen['speaker']; ?><br>
 				<span class="day">
-					<?php echo $meigens['created_at']; ?>
+					<?php echo $meigen['created_at']; ?>
 				</span>
 			</p>
 			<div>●●●</div>
@@ -95,17 +88,19 @@
 	    <li><a href="#"><img src="../img/1.jpg" alt="はあ？"></a></li>
 	    <li><a href="#"><img src="../img/2.jpg" alt="ImpactOnTheWorld"></a></li>
 		<li>
-			<a href="./detail.php?meigen_id=<?php print htmlspecialchars($meigens['meigen_id'], ENT_QUOTES, 'UTF-8'); ?>"><img src="../img/3.jpg" alt="雰囲気わかりました"></a>
+			<a href="./detail.php?meigen_id=<?php print htmlspecialchars($meigen['meigen_id'], ENT_QUOTES, 'UTF-8'); ?>"><img src="../img/3.jpg" alt="雰囲気わかりました"></a>
 		</li>
 	    </ul>
 	</div>
-    </div>
+    </div><!-- /meigen -->
 <?php
     }   // foreach
 ?>
 <!--名言ここまで-->
-
+    </div><!-- /meigen_box -->
 </div>
+    <div id="loading">
+        ローディング中
+    </div>
 </body>
-    <a href="../meigen/">めいげん</a>
 </html>
