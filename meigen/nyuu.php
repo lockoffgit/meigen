@@ -1,10 +1,8 @@
 <?php
-
 require('../libs/database.php');
 
 $objDb = new db_util();
 if (count($_POST) != 0) {
-var_dump($_POST);
 //	$contributor = $_SESSION['facebook_user_id'];
 	$contributor = 'dummy-contributorr';
 
@@ -28,8 +26,6 @@ var_dump($_POST);
 		"member_id"	=> $member_id,
 		"image_url"	=> $image_url
 	);
-
-	var_dump($objDb->insert("meigens", $addParams));
 
 	header("Location: ./meigen.php");
 	exit();
