@@ -148,8 +148,8 @@ $userInfo['handle_name'] = $result[0]['handle_name'];
 $userInfo['unit_name'] = $result[0]['unit_name'];
 
 // cookieに認証情報を登録
-setcookie('login_token', $userInfo['facebook_user_id'] . "@" . $userInfo['member_id']);
-setcookie('userInfo', $userInfo);
+setcookie('login_token', $userInfo['facebook_user_id'] . "@" . $userInfo['member_id'], 0, "/");
+setcookie('userInfo', $userInfo, 0, "/");
 header("Location: /meigen/index.php",true,303);
 ?>
 <html>
