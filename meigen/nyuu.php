@@ -29,7 +29,7 @@ if (count($_POST) != 0) {
 
 	$result = $objDb->insert("meigens", $addParams);
 
-	header("Location: ./meigen.php");
+	header("Location: ./");
 	exit();
 }
 
