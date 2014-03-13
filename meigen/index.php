@@ -7,27 +7,28 @@
     $query = "
     SELECT
         mei.*
-        ,(SELECT
-            count(x.iotw_id)
-        FROM
-            iotws x
-        WHERE
-            x.meigen_id = mei.meigen_id
-        ) as iotw_cnt
-        ,(SELECT
-            count(x.delete_id)
-        FROM
-            deletes x
-        WHERE
-            x.meigen_id = mei.meigen_id
-        ) as delete_cnt
+        ,(
+            SELECT
+                    COUNT(x.iotw_id)
+                FROM
+                    iotws x
+                WHERE
+                    x.meigen_id = mei.meigen_id
+        ) AS iotw_cnt
+        ,(
+            SELECT
+                    COUNT(x.delete_id)
+                FROM
+                    deletes x
+                WHERE
+                    x.meigen_id = mei.meigen_id
+        ) AS delete_cnt
         ,COALESCE(
             mei.image_url
             ,mem.image_url
         ) AS meigen_image_url
     FROM
-        meigens AS mei
-        left outer JOIN members mem
+        meigens AS mei LEFT OUTER JOIN members mem
             ON (
             mei.member_id = mem.member_id
         )
