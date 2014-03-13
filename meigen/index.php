@@ -1,32 +1,42 @@
 <?php
     require_once("../libs/database.php");
     define("LIST_MAX", 10);
+    $page_no = isset($_GET['page_no']) ? (($_GET['page_no'] - 1) * LIST_MAX) : 0;
+
     $objDb = new db_util();
     $query = "
     SELECT
-        Mei.*
-        ,COUNT(Iot.iotw_id) AS iotw_cnt
-        ,COUNT(del.delete_id) AS delete_cnt
+        mei.*
+        ,(SELECT
+            count(x.iotw_id)
+        FROM
+            iotws x
+        WHERE
+            x.meigen_id = mei.meigen_id
+        ) as iotw_cnt
+        ,(SELECT
+            count(x.delete_id)
+        FROM
+            deletes x
+        WHERE
+            x.meigen_id = mei.meigen_id
+        ) as delete_cnt
         ,COALESCE(
-            Mei.image_url
-            ,Mem.image_url
+            mei.image_url
+            ,mem.image_url
         ) AS meigen_image_url
     FROM
-        meigens AS Mei LEFT OUTER JOIN members AS Mem
-            ON Mem.member_id = Mei.member_id LEFT OUTER JOIN iotws AS Iot
-            ON Iot.meigen_id = Mei.meigen_id LEFT OUTER JOIN deletes AS del
-            ON del.meigen_id = Mei.meigen_id
-    WHERE
-        Mem.del_flag <> 1
-    GROUP BY
-        Iot.meigen_id
-        ,del.meigen_id
+        meigens AS mei
+        left outer JOIN members mem
+            ON (
+            mei.member_id = mem.member_id
+        )
     ORDER BY
-        modified_at DESC
+        mei.modified_at DESC
+	LIMIT " . $page_no . ", 10
     ";
-    $page_no = $_GET['page_no'] ? ($_GET['page_no'] - 1) * LIST_MAX : 0;
-    $params[] = $page_no;
-    $arrMeigens = $objDb->select($query, $params);
+
+    $arrMeigens = $objDb->select($query);
 ?><!DOCTYPE html>
 <html class="no_js" lang="ja">
 <head>
