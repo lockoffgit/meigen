@@ -26,7 +26,7 @@ $tries = $objDb->select('select * from tries where meigen_id = ? order by try_id
 	<div class="navbar">
 		<div class="navbar-header">
 			<div class="navbar-brand">
-				<a href="index.html">名言くん</a>
+				<a href="./">名言くん</a>
 			</div>
 			<div class="navbar-entry"><a href="./nyuu.php">投稿する</a></div>
 		</div>
