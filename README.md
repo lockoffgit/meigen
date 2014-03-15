@@ -1,8 +1,14 @@
-#Meigen 
+# Meigen
 
-Since 14/03/2014
+## History
 
-## Creater
+08/03/2014  
+ We created a unique system for our company members.  
+ It is a prototype.    
 
-GTGT@Lockoff
+## Creaters
 
+Team GTGT @[lockoff](http://www.lockon.co.jp/lockoff/ "ロックオフ")  
+ Project Manager: Para-san  
+ Member：Uekara Mihara  
+ and others.  
