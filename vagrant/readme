@@ -1,0 +1,27 @@
+- 以下環境で作成 
+mac os 10.9.2
+vagrant 1.5.1
+virtual box 4.3.8
+
+- 準備
+vagrant と virtualboxインストール
+http://www.vagrantup.com/downloads.html
+https://www.virtualbox.org/wiki/Downloads
+
+- 実行
+$ git clone https://github.com/lockoffgit/meigen.git
+$ cd meigen/vagrant
+$ vagrant up
+
+- 確認
+ブラウザから
+http://localhost:37489/meigen
+
+vagrant sshでゲストにログイン
+$ vagrant ssh
+
+- メモ
+ホストのmeigenディレクトリと, ゲストの/vagrant_dataが共有フォルダになる
+
+- さんこう
+http://www.absolute-keitarou.net/blog/?p=579
