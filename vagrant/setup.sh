@@ -18,6 +18,7 @@ sudo mkdir /var/log/meigen
 sudo chmod 777 /var/log/meigen
 sudo rm -rf /var/www/html
 sudo ln -s /vagrant_data /var/www/html
+# .htaccessがmeigenkunをみてたのでシンボリックリンク追加
 sudo ln -s /vagrant_data /var/www/meigenkun
 sudo /etc/init.d/httpd start
 sudo chkconfig httpd on
