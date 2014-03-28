@@ -15,7 +15,7 @@ $ vagrant up
 
 - 確認
 ブラウザから
-http://localhost:37489/meigen
+http://localhost:37489/meigenkun/meigen
 
 vagrant sshでゲストにログイン
 $ vagrant ssh
