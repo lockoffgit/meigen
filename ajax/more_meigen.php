@@ -8,7 +8,7 @@
             $return .= <<<EOF
     <div class="meigen">
 	<div class="meigen-area">
-		<div class="meigen-photo"><img src="{$meigen['meigen_image_url']}"></div>
+		<div class="meigen-photo"><img src="../images/member/{$meigen['member_id']}.jpg"></div>
 		<div class="meigen-txt">
 		  	<div class="meigen-detail">
 			<p>{$meigen['meigen_text']}</p>
