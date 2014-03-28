@@ -98,7 +98,7 @@ $(function(){
 		<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/1.jpg" alt="はあ？"></a></li>
 		<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/2.jpg" alt="ImpactOnTheWorld"></a></li>
 		<li>
-			<a href="./detail.php?meigen_id=<?php print htmlspecialchars($meigen['meigen_id'], ENT_QUOTES, 'UTF-8'); ?>"><img src="../img/3.jpg" alt="雰囲気わかりました"></a>
+			<a href="./try.php?meigen_id=<?php print htmlspecialchars($meigen['meigen_id'], ENT_QUOTES, 'UTF-8'); ?>"><img src="../img/3.jpg" alt="雰囲気わかりました"></a>
 		</li>
 	    </ul>
 	</div>
