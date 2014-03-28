@@ -77,6 +77,7 @@ $(function(){
 ?>
     <div class="meigen">
 	<div class="meigen-area">
+		<a href="./detail.php?meigen_id=<?php print htmlspecialchars($meigen['meigen_id'], ENT_QUOTES, 'UTF-8'); ?>">
 		<div class="meigen-photo"><img src="<?php echo $meigen['meigen_image_url']; ?>"></div>
 		<div class="meigen-txt">
 		  	<div class="meigen-detail">
@@ -90,6 +91,7 @@ $(function(){
 			<div>●●●</div>
 		  </div>
 		</div>
+		</a>
 	</div>
 	<div class="ha-area">
 		<ul>
