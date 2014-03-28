@@ -1,214 +1,317 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	font-size: 100%;
-	vertical-align: baseline;
-	background: transparent;
+@charset "utf-8";
+/* meigenkun css
+======================= */
+
+/*
+html5doctor.com Reset Stylesheet
+v1.4
+2009-07-27
+Author: Richard Clark - http://richclarkdesign.com
+*/
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
 }
 body {
-	line-height: 1;
+	line-height:1;
+	-webkit-text-size-adjust: 100%;
 }
-ol, ul {
-	list-style: none;
+article, aside, dialog, figure, footer, header, hgroup, nav, section {
+	display:block;
+}
+nav ul {
+	list-style:none;
 }
 blockquote, q {
-	quotes: none;
+	quotes:none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before, blockquote:after, q:before, q:after {
+	content:'';
+	content:none;
 }
- 
-/* remember to define focus styles! */
-:focus {
-	outline: 0;
+a {
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
 }
- 
-/* remember to highlight inserts somehow! */
 ins {
-	text-decoration: none;
+	background-color:#ff9;
+	color:#000;
+	text-decoration:none;
+}
+mark {
+	background-color:#ff9;
+	color:#000;
+	font-style:italic;
+	font-weight:bold;
 }
 del {
 	text-decoration: line-through;
 }
- 
-/* tables still need 'cellspacing=&quot;0&quot;' in the markup */
+abbr[title], dfn[title] {
+	border-bottom:1px dotted #000;
+	cursor:help;
+}
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+	border-collapse:collapse;
+	border-spacing:0;
 }
-
-
+hr {
+	display:block;
+	height:1px;
+	border:0;
+	border-top:1px solid #ccc;
+	margin:1em 0;
+	padding:0;
+}
+input, select {
+	vertical-align:middle;
+}
+button {
+	letter-spacing: normal;
+	font-family: sans-serif;
+}
+html {
+	font-size: 62.5%;/* 62.5%を指定すると「1.0 rem = 10px」 */
+}
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.428571429;
-  color: #333333;
-  background-color: #F2F2F2;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	color: #333333;
+	background-color: #F2F2F2;
+	font-family: sans-serif;
+	font-size: 13px;
+	font-size: 1.3rem;
 }
-
-
-body {
-  margin: 0;
+a:link {
+	color: #333;
+	text-decoration:none;
 }
-
-a {
-text-decoration: none;
+a:visited {
+	color: #333;
+	text-decoration:none;
 }
-
-pre {
-  white-space: pre-wrap;
+a:hover {
+	color: #333;
+	text-decoration: underline;
 }
-
-small {
-  font-size: 80%;
+a:active {
+	color: #333;
+	text-decoration:none;
 }
-
+p {
+	margin: 0 0 1em;
+	color: #333;
+	line-height: 1.3;
+	text-align: left;
+}
+dl dt, dl dd {
+	color: #333;
+	line-height: 1.3;
+	text-align: left;
+}
+ul {
+	margin: 0 0 2em;
+	padding: 0;
+	list-style: none;
+}
 img {
-  border: 0;
+	max-width : 100%;
+}
+small {
+	font-size: 11px;
+	font-size: 1.1rem;
 }
 
-.navbar {
-  background-color: #1ABC9C;
-  height: 60px;
-  padding: 30px 10px 0 10px;
+/* --- clearfix --- */
+
+.cf {
+	zoom: 1;
+}
+.cf:before, .cf:after {
+	content: "";
+	display: table;
+}
+.cf:after {
+	clear: both;
 }
 
-.navbar-brand {
-  font-weight: bold;
+
+/* =====================================
+	 navigation
+===================================== */
+
+header {
+	background-color: #2551a3;
+	padding: 10px;
+	color: #fff;
+}
+header .navbar-brand {
+	font-weight: bold;
+	text-align: center;
+	font-size: 20px;
+	font-size: 2.0rem;
+}
+header a:link { color: #fff; }
+header a:visited { color: #fff; }
+header a:hover { color: #fff; }
+header a:active { color: #fff; }
+
+header .navbar-entry {
+	position: absolute;
+	top: 10px; right: 20px;
+}
+header .navbar-entry img {
+	height: 19px; 
+}
+nav {
+	width: 100%;
+	background-color: #fff;
+	margin-bottom: 15px;
+}
+nav ul {
+	width: 100%;
+}
+nav li {
+	float: left;
+	width: 25%;
+	text-align: center;
+	padding: 0.5em 0;
+}
+nav a {
+	color: #1ABC9C;
+	font-weight: bold;
+}
+nav li a img {
+	max-width: 100%;
+	max-height: 25px;
 }
 
-.navbar .navbar-brand {
-  float: left;
-}
-
-.navbar a {
-  color: #fff;
-}
-
-.navbar .navbar-entry {
-  float: right;
-}
-
-.navbar-collapse {
- margin: 0 auto;
-  background-color: #fff;
-  height: 50px;
-  margin-bottom: 15px;
-}  
-
-.navbar-collapse {
-  max-height: 340px;
-  overflow-x: visible;
-  border-top: 1px solid transparent;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  -webkit-overflow-scrolling: touch;
-}
-
-.navbar-collapse li {
- display:inline;
- list-style:none;
- padding-right: 10px;
-}  
-
-.navbar-collapse a {
-  color: #1ABC9C;
-  font-weight: bold;
-}
+/* =====================================
+	 meigen
+===================================== */
 
 .meigen {
-  width: 100%;
-  margin-bottom:15px;
+	width: 100%;
+	margin-bottom:15px;
 }
-
 .meigen-area {
-    zoom: 100%;
+	background-color: #333;
+	color:#fff;
+	width: 300px;
+	margin: 0 auto;
 }
-.meigen-area:after {
-    content: "";
-    clear: both;
-    height: 0;
-    display: block;
-    visibility: hidden;
-}
-
-.meigen-area {
-  background-color: #333;
-  color:#fff;
-  width: 300px;
-  margin: 0 auto;
-}
+.meigen-area a:link { color: #fff;}
+.meigen-area a:visited { color: #fff;}
+.meigen-area a:hover { color: #fff;}
+.meigen-area a:active { color: #fff;}
 
 .meigen-area .meigen-photo {
-  float: left;
-  height: 200px;
-  width: 150px;
-  padding: 0px;
+	float: left;
+	height: 200px;
+	width: 50%;
 }
-
+.meigen-area .meigen-photo img {
+	width: 150px;
+}
 .meigen-area .meigen-txt {
-  float: left;
-  width: 150px;
+	float: left;
+	width: 50%;
 }
-
+.meigen-area .meigen-txt h2 {
+	font-size: 22px;
+	font-size: 2.2rem;
+	line-height: 1.2;
+	font-weight: bold;
+	margin-bottom: 10px;
+	padding: 10px;
+}
 .meigen-area .meigen-detail {
-  padding: 0 5px 0 8px;
+	padding: 0 10px;
+}
+.meigen-area .meigen-detail .date {
+	color: #fff;
+	margin-bottom: 0.2em;
+	font-size: 12px;
+	font-size: 1.2rem;
+}
+.meigen-area .meigen-detail .name {
+	color: #fff;
+	font-size: 16px;
+	font-size: 1.6rem;
 }
 
-.meigen-area .meigen-detail .day {
-  color: #999;
+/* tamashii-area */
+
+.tamashii-area {
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+	width: 300px;
+	padding: 0.2em 0;
+	margin: 0 auto;
 }
+.tamashii-area .tamashii {
+	width: 50%;
+	float: left;
+}
+.tamashii-area .tamashii img {
+	margin-left: 5px;
+}
+.tamashii-area .tamashii img:first-child {
+	margin-left: 15px;
+}
+.tamashii-area .iine {
+	width: 46%;
+	float: right;
+	padding: 0.2em 4% 0.2em 0;
+	text-align: right;
+}
+
+/* ha-area */
 
 .ha-area {
-  font-size: 10px;
-  background-color: #fff;
-  width: 300px;
-  margin: 0 auto;
+	font-size: 10px;
+	background-color: #fff;
+	width: 300px;
+	margin: 0 auto;
+	zoom: 100%;
 }
-
-
-.ha-area {
-    zoom: 100%;
+.ha-area ul {
+	margin:0;
+	padding:0;
+	width:300px;
+	overflow:hidden;
 }
-.ha-area:after {
-    content: "";
-    clear: both;
-    height: 0;
-    display: block;
-    visibility: hidden;
-}
-
-.ha-area ul{
-    margin:0;
-    padding:0;
-    width:300px;
-    overflow:hidden;
-}
-
 .ha-area li {
- list-style:none;
- width:98px;
- float:left;
+	list-style:none;
+	width:33.3%;
+	float:left;
+	border-right: 1px solid #eee;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
-
+.ha-area li:last-child {
+	border-right: 0 none;
+}
 .ha-area li a {
-    display:block;
-    text-align:center;
-}  
+	display:block;
+	text-align:center;
+}
+/* loading */
 
 #loading {
-    background-color: #ff0000;
-    display: none;
-    height: 100px;
+	text-align: center;
+	display: none;
+	height: 100px;
 }
