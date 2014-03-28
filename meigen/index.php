@@ -64,7 +64,7 @@ $(function(){
 		<div class="meigen">
 			<div class="meigen-area cf">
 				<a href="./detail.php?meigen_id=<?php print htmlspecialchars($meigen['meigen_id'], ENT_QUOTES, 'UTF-8'); ?>">
-				<div class="meigen-photo"><img src="../images/member/<?php echo $meigen['image_url']; ?>"></div>
+				<div class="meigen-photo"><img src="../images/member/<?php echo $meigen['member_id']; ?>.jpg"></div>
 				<div class="meigen-txt">
 					<h2><?php echo nl2br($meigen['meigen_text']); ?></h2>
 					<div class="meigen-detail">
