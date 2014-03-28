@@ -50,11 +50,19 @@ $(function(){
 </div>
 
 <div class="navbar-collapse collapse">
+<?php
+  // <ul class="navbar-nav">
+    // <li><a href="ranking.php">RANKING</a></li>
+    // <li><a href="calendar.php">CALENDAR</a></li>
+    // <li><a href="shinikake.php">SHINIKAKE</a></li>
+    // <li><a href="bochi.php">BOCHI</a></li>
+  // </ul>
+?>
   <ul class="navbar-nav">
-    <li><a href="ranking.php">RANKING</a></li>
-    <li><a href="calendar.php">CALENDAR</a></li>
-    <li><a href="shinikake.php">SHINIKAKE</a></li>
-    <li><a href="bochi.php">BOCHI</a></li>
+    <li><a href="javascript:alert('かみんぐすぅん');">RANKING</a></li>
+    <li><a href="javascript:alert('かみんぐすぅん');">CALENDAR</a></li>
+    <li><a href="javascript:alert('かみんぐすぅん');">SHINIKAKE</a></li>
+    <li><a href="javascript:alert('かみんぐすぅん');">BOCHI</a></li>
   </ul>
 </div>
 
@@ -85,8 +93,8 @@ $(function(){
 	</div>
 	<div class="ha-area">
 		<ul>
-	    <li><a href="#"><img src="../img/1.jpg" alt="はあ？"></a></li>
-	    <li><a href="#"><img src="../img/2.jpg" alt="ImpactOnTheWorld"></a></li>
+		<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/1.jpg" alt="はあ？"></a></li>
+		<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/2.jpg" alt="ImpactOnTheWorld"></a></li>
 		<li>
 			<a href="./detail.php?meigen_id=<?php print htmlspecialchars($meigen['meigen_id'], ENT_QUOTES, 'UTF-8'); ?>"><img src="../img/3.jpg" alt="雰囲気わかりました"></a>
 		</li>
