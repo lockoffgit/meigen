@@ -44,7 +44,7 @@ $tries = $objDb->select('select * from tries where meigen_id = ? order by try_id
 
 	<div class="meigen">
 		<div class="meigen-area">
-			<div class="meigen-photo"><img src="<?php echo $meigens['meigen_image_url']; ?>"></div>
+			<div class="meigen-photo"><img src="<?php echo $meigen['image_url']; ?>"></div>
 			<div class="meigen-txt">
 				<div class="meigen-detail">
 				<h2>高橋くんデザインお願いします</h2>
