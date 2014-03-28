@@ -69,7 +69,7 @@ $(function(){
 ?>
     <div class="meigen">
 	<div class="meigen-area">
-		<div class="meigen-photo"><img src="<?php echo $meigen['meigen_image_url']; ?>"></div>
+		<div class="meigen-photo"><img src="/images/member/<?php echo $meigen['member_id']; ?>.jpg"></div>
 		<div class="meigen-txt">
 		  	<div class="meigen-detail">
 			<p><?php echo nl2br($meigen['meigen_text']); ?></p>
