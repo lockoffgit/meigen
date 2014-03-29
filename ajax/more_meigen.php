@@ -25,13 +25,13 @@
 				<div class="tamashii">
 					<img src="../img/icon_tamashii.png" height="17"><img src="../img/icon_tamashii.png" height="17"><img src="../img/icon_tamashii.png" height="17">
 				</div>
-				<div class="iine">いいね！2件</div>
+                                <div class="iine">IOTW！<span id="iotw_count{$meigen['meigen_id']}">{$meigen['iotw_cnt']}</span>件</div>
 			</div>
 			<div class="ha-area cf">
 				<ul>
 					<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/bt_haa.png" alt="はあ？"></a></li>
-					<li><a href="javascript:alert('本当にcore@lockon.co.jpにメールを飛ばしてもいいですか？');"><img src="../img/bt_impact.png" alt="ImpactOnTheWorld"></a></li>
-					<li> <a href="./try.php?meigen_id={$meigen['meigen_id']}"><img src="../img/bt_wakatta.png" alt="雰囲気わかりました"></a> </li>
+                                        <li><a id="iotw" href="./index.php" value="{$meigen['meigen_id']}"><img src="../img/bt_impact.png" alt="ImpactOnTheWorld"></a></li>
+                                        <li> <a href="./try.php?meigen_id={$meigen['meigen_id']}"><img src="../img/bt_wakatta.png" alt="雰囲気わかりました"></a> </li>
 				</ul>
 			</div>
 		</div>
