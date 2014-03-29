@@ -44,8 +44,15 @@ $(function(){
                     type: "POST",
                     data: post_data,
                     dataType: "text",
+                    // 登録成功した場合はIOTWをカウントアップ
                     success: function(ret){
                         iotw_div_id = "span#iotw_count" + iotw_meigen_id;
+                        
+                        $(iotw_div_id)
+                            .animate({'fontSize': '18px'})
+                            .animate({'fontSize': '13px'})
+                        ;
+
                         iotw_count = Number($(iotw_div_id).text());
                         $(iotw_div_id).text(iotw_count + 1);
                     },
