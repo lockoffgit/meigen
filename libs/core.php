@@ -14,5 +14,5 @@
     define("LIST_MAX", 10);
   
     require_once("database.php");
-
+    require_once("conf.php");
 ?>

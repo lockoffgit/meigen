@@ -5,7 +5,7 @@ $objDb = new db_util();
 if (count($_POST) != 0) {
 	session_start();
 	$contributor = $_SESSION['facebook_user_id'];
-//	$contributor = 'dummy-contributorr';
+	$contributor = 'dummy-contributorr';
 
 	$member_id = $_POST['speaker'];
 	$person = $objDb->select("SELECT name FROM members WHERE member_id=$member_id;");
@@ -34,22 +34,37 @@ if (count($_POST) != 0) {
 	);
 
 	$result = $objDb->insert("meigens", $addParams);
-
 	header("Location: ./index.php");
 	exit();
 }
 
 ?>
 
-<!DOCTYPE html>
-<html>
-
+<html lang="ja">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<title>名言新規登録</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>名言くん（仮） ver.amagasaki 新規登録</title>
+<meta name="description" content="">
+<link type="text/css" rel="stylesheet" href="../css/main.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="../js/jquery.bottom.js"></script>
+<script>
+</script>
 </head>
-
 <body>
+<div class="container">
+	<header class="cf">
+            <div class="navbar-brand"> <a href="./"><img src="../img/title.png"></a></div>
+		<div class="navbar-entry"><a href="./nyuu.php"><img src="../img/bt_entry.png" alt="投稿する"></a></div>
+	</header>
+	<nav>
+		<ul class="navbar-nav cf">
+			<li>新規登録</li>
+		</ul>
+	</nav>
+	<div id="meigen_box">
 
 	<form name="form_regist" action="./nyuu.php" method="POST">
 		<p>発言者(必須): 
@@ -71,7 +86,7 @@ if (count($_POST) != 0) {
 				
     			$unit = $objDb->select("SELECT unit_name FROM units;");
     		 	foreach($unit as $val){
-    				print('<option value="' . $val['unit_name'] . '">' . $val['unit_name'] . '</option>');
+    				echo '<option value="' . $val['unit_name'] . '">' . $val['unit_name'] . '</option> ';
 				}
 
 				?>
@@ -84,9 +99,9 @@ if (count($_POST) != 0) {
 
 		<p>フォント(必須): </p>
 		<p>
-			<input type="radio" name="font" id="font" value="font1" /><label for="font">フォント1</label>
-			<input type="radio" name="font" id="font" value="font2" /><label for="font">フォント2</label>
-			<input type="radio" name="font" id="font" value="font3" /><label for="font">フォント3</label>
+                    <?php foreach ($arrFont as $key => $val) { 
+                        print ('<div style="font-family: ' . $val .'" /><input type="radio" name="font" id="font" value="' . $key .'" /><label for="font">ふぉんと</label></div>');
+                    } ?>
 		</p>
 
 		<p>名言の背景(必須): </p>
@@ -94,9 +109,8 @@ if (count($_POST) != 0) {
 
 		<input type="submit" value="投稿する" />
 	</form>
-
-	<br>
-	<a href="../meigen/meigen.php">名言</a>
+        </div>
+</div>
 </body>
 
 </html>

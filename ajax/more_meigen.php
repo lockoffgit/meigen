@@ -5,13 +5,15 @@
     $arrMeigens = $objDb->getMeigenList($page_no);
     if(count($arrMeigens) > 0){
         foreach($arrMeigens as $meigen){
+            $meigen_text = htmlspecialchars($meigen['meigen_text']);
+            $font = $arrFont["{$meigen['font']}"];
             $return .= <<<EOF
 		<div class="meigen">
 			<div class="meigen-area cf">
 				<a href="./detail.php?meigen_id={$meigen['meigen_id']}">
-				<div class="meigen-photo"><img src="../images/member/{$meigen['meigen_id']}.jpg"></div>
+				<div class="meigen-photo"><img src="../images/member/{$meigen['member_id']}.jpg"></div>
 				<div class="meigen-txt">
-                                        <h2>{$meigen['meigen_text']}</h2>
+                                        <h2 style="font-family: {$font}">{$meigen_text}</h2>
 					<div class="meigen-detail">
                                         <p class="date">{$meigen['created_at']}</p>
 					<p class="name">{$meigen['speaker']}</p>
@@ -29,7 +31,7 @@
 				<ul>
 					<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/bt_haa.png" alt="はあ？"></a></li>
 					<li><a href="javascript:alert('本当にcore@lockon.co.jpにメールを飛ばしてもいいですか？');"><img src="../img/bt_impact.png" alt="ImpactOnTheWorld"></a></li>
-					<li> <a href="./try.php?meigen_id={$meigen['meigen_id']}<img src="../img/bt_wakatta.png" alt="雰囲気わかりました"></a> </li>
+					<li> <a href="./try.php?meigen_id={$meigen['meigen_id']}"><img src="../img/bt_wakatta.png" alt="雰囲気わかりました"></a> </li>
 				</ul>
 			</div>
 		</div>

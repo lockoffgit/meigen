@@ -58,7 +58,6 @@ $(function(){
 	require_once("../libs/core.php");
 	$objDb = new db_util();
 	$arrMeigens = $objDb->getMeigenList();
-
 	foreach($arrMeigens as $meigen){
 ?>
 		<div class="meigen">
@@ -66,7 +65,7 @@ $(function(){
 				<a href="./detail.php?meigen_id=<?php print htmlspecialchars($meigen['meigen_id'], ENT_QUOTES, 'UTF-8'); ?>">
 				<div class="meigen-photo"><img src="../images/member/<?php echo $meigen['member_id']; ?>.jpg"></div>
 				<div class="meigen-txt">
-					<h2><?php echo nl2br($meigen['meigen_text']); ?></h2>
+                                    <h2 style="font-family: <?php echo $arrFont["{$meigen['font']}"];?>"><?php echo nl2br($meigen['meigen_text']); ?></h2>
 					<div class="meigen-detail">
 					<p class="date"><?php echo $meigen['created_at']; ?></p>
 					<p class="name"><?php echo $meigen['speaker']; ?></p>
