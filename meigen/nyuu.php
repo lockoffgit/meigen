@@ -5,7 +5,7 @@ $objDb = new db_util();
 if (count($_POST) != 0) {
 	session_start();
 	$contributor = $_SESSION['facebook_user_id'];
-	$contributor = 'dummy-contributorr';
+        //$contributor = 'dummy-contributorr';
 
 	$member_id = $_POST['speaker'];
 	$person = $objDb->select("SELECT name FROM members WHERE member_id=$member_id;");
