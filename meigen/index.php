@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>名言くん（仮）</title>
+<title>名言くん（仮） ver.amagasaki</title>
 <meta name="description" content="">
 <link type="text/css" rel="stylesheet" href="../css/main.css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -41,7 +41,7 @@ $(function(){
 <body>
 <div class="container">
 	<header class="cf">
-		<div class="navbar-brand"> <a href="./">名言くん</a> </div>
+            <div class="navbar-brand"> <a href="./"><img src="../img/title.png"></a></div>
 		<div class="navbar-entry"><a href="./nyuu.php"><img src="../img/bt_entry.png" alt="投稿する"></a></div>
 	</header>
 	<nav>
@@ -83,7 +83,7 @@ $(function(){
 			<div class="ha-area cf">
 				<ul>
 					<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/bt_haa.png" alt="はあ？"></a></li>
-					<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/bt_impact.png" alt="ImpactOnTheWorld"></a></li>
+					<li><a href="javascript:alert('本当にcore@lockon.co.jpにメールを飛ばしてもいいですか？');"><img src="../img/bt_impact.png" alt="ImpactOnTheWorld"></a></li>
 					<li> <a href="./try.php?meigen_id=<?php print htmlspecialchars($meigen['meigen_id'], ENT_QUOTES, 'UTF-8'); ?>"><img src="../img/bt_wakatta.png" alt="雰囲気わかりました"></a> </li>
 				</ul>
 			</div>
