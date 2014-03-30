@@ -84,6 +84,57 @@
             $arrMeigens = $this->select($query);
             return $arrMeigens;
         }
+        
+        /**
+         * 
+         * @param integer $member_id
+         * @return array
+         */
+        function getMeigenData($member_id = 0){
+
+            $query = "
+            SELECT
+                mei.*
+                ,(
+                    SELECT
+                            COUNT(x.iotw_id)
+                        FROM
+                            iotws x
+                        WHERE
+                            x.meigen_id = ?
+                ) AS iotw_cnt
+                ,(
+                    SELECT
+                            COUNT(x.delete_id)
+                        FROM
+                            deletes x
+                        WHERE
+                            x.meigen_id = ?
+                ) AS delete_cnt
+                ,(
+                    SELECT
+                            COUNT(x.try_id)
+                        FROM
+                            tries x
+                        WHERE
+                            x.meigen_id = ?
+                ) AS tries_cnt
+                ,COALESCE(
+                    mei.image_url
+                    ,mem.image_url
+                ) AS meigen_image_url
+            FROM
+                meigens AS mei LEFT OUTER JOIN members mem
+                    ON (
+                    mei.member_id = mem.member_id
+                )
+            WHERE
+                mei.meigen_id = ?
+            ";
+
+            $arrMeigens = $this->select($query, array($member_id, $member_id, $member_id, $member_id));
+            return $arrMeigens[0];
+        }
     }
     
 ?>

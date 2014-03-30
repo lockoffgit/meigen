@@ -8,7 +8,7 @@
             $meigen_text = htmlspecialchars($meigen['meigen_text']);
             $font = $arrFont["{$meigen['font']}"];
             $return .= <<<EOF
-		<div class="meigen">
+		<div class="meigen" id="meigen_list{$meigen['meigen_id']}">
 			<div class="meigen-area cf">
 				<a href="./detail.php?meigen_id={$meigen['meigen_id']}">
 				<div class="meigen-photo"><img src="../images/member/{$meigen['member_id']}.jpg"></div>
@@ -22,14 +22,18 @@
 				</a>
 			</div>
 			<div class="tamashii-area cf">
-				<div class="tamashii">
-					<img src="../img/icon_tamashii.png" height="17"><img src="../img/icon_tamashii.png" height="17"><img src="../img/icon_tamashii.png" height="17">
+				<div class="tamashii" id="haa_count{$meigen['meigen_id']}">
+EOF;
+            for ($delete_life_count = 0; (MEIGEN_DELETE_LIFE - $meigen['delete_cnt']) > $delete_life_count; $delete_life_count++) {
+                $return .= '               <img src="../img/icon_tamashii.png" height="17">';
+            }
+            $return .= <<<EOF
 				</div>
                                 <div class="iine">IOTW！<span id="iotw_count{$meigen['meigen_id']}">{$meigen['iotw_cnt']}</span>件</div>
 			</div>
 			<div class="ha-area cf">
 				<ul>
-					<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/bt_haa.png" alt="はあ？"></a></li>
+                                        <li><a id="haa" href="./index.php" value="{$meigen['meigen_id']}"><img src="../img/bt_haa.png" alt="はあ？"></a></li>
                                         <li><a id="iotw" href="./index.php" value="{$meigen['meigen_id']}"><img src="../img/bt_impact.png" alt="ImpactOnTheWorld"></a></li>
                                         <li> <a href="./try.php?meigen_id={$meigen['meigen_id']}"><img src="../img/bt_wakatta.png" alt="雰囲気わかりました"></a> </li>
 				</ul>

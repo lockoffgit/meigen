@@ -6,6 +6,8 @@
  * and open the template in the editor.
  */
 
+define("MEIGEN_DELETE_LIFE", 5); // LIFE
+
 $arrFont = array(
     'font1' => 'FLOPDesignFont',
     'font2' => 'hkgyokk',

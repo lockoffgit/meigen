@@ -47,14 +47,51 @@ $(function(){
                     // 登録成功した場合はIOTWをカウントアップ
                     success: function(ret){
                         iotw_div_id = "span#iotw_count" + iotw_meigen_id;
-                        
+                        // IOTWクリック時の動作
                         $(iotw_div_id)
-                            .animate({'fontSize': '18px'})
-                            .animate({'fontSize': '13px'})
+                            .animate({'fontSize': '18px'},500)
+                            .animate({'fontSize': '13px'},400)
                         ;
 
                         iotw_count = Number($(iotw_div_id).text());
                         $(iotw_div_id).text(iotw_count + 1);
+                    },
+                    error: function(ret){
+                        alert(ret);
+                    }
+            });
+            return false;         // Don't jump
+        });
+
+        // はぁ？クリックアクション（IOTWと統合可能だけど一旦べたに書く）
+        var haa_meigen_id = 1;
+        $("a#haa").live("click", function(e) {
+            haa_meigen_id = $(this).attr("value");
+            haa_div_id = "div#haa_count" + haa_meigen_id;
+            haa_count = $(haa_div_id).children().length;
+            if (haa_count < 2) {
+                if (!confirm('本当に名言を削除してよろしいですか？')) {
+                    return false;
+                }
+            }
+            post_data = {meigen_id : haa_meigen_id};
+            $.ajax({
+                    url: "../ajax/delete.php",
+                    type: "POST",
+                    data: post_data,
+                    dataType: "text",
+                    success: function(ret){
+                        // 登録成功した場合は はぁ画像をカウントダウン
+                        $(haa_div_id + " img:last-child").animate({width: "35%"},100,function(){
+                            $(this).fadeOut(500, function(){
+                                $(this).remove();
+                            });
+                            // 墓場処理時のアクションを実行
+                            if (haa_count < 2) {
+                                $("div#meigen_list" + haa_meigen_id).fadeOut(1000);
+                                $("dev#meigen_list" + haa_meigen_id).remove();
+                            }
+                    });
                     },
                     error: function(ret){
                         alert(ret);
@@ -88,7 +125,7 @@ $(function(){
 	$arrMeigens = $objDb->getMeigenList();
 	foreach($arrMeigens as $meigen){
 ?>
-		<div class="meigen">
+		<div class="meigen" id="meigen_list<?php echo $meigen['meigen_id']; ?>">
 			<div class="meigen-area cf">
 				<a href="./detail.php?meigen_id=<?php print htmlspecialchars($meigen['meigen_id'], ENT_QUOTES, 'UTF-8'); ?>">
 				<div class="meigen-photo"><img src="../images/member/<?php echo $meigen['member_id']; ?>.jpg"></div>
@@ -102,14 +139,16 @@ $(function(){
 				</a>
 			</div>
 			<div class="tamashii-area cf">
-				<div class="tamashii">
-					<img src="../img/icon_tamashii.png" height="17"><img src="../img/icon_tamashii.png" height="17"><img src="../img/icon_tamashii.png" height="17">
-				</div>
-                            <div class="iine">IOTW！<span id="iotw_count<?php echo $meigen['meigen_id']; ?>"><?php echo $meigen['iotw_cnt']; ?></span>件</div>
+				<div class="tamashii" id="haa_count<?php echo $meigen['meigen_id']; ?>">
+        <?php for ($delete_life_count = 0; (MEIGEN_DELETE_LIFE - $meigen['delete_cnt']) > $delete_life_count; $delete_life_count++) { ?>
+					<img src="../img/icon_tamashii.png" height="17">
+        <?php } ?>
+                                </div>
+                           <div class="iine">IOTW！<span id="iotw_count<?php echo $meigen['meigen_id']; ?>"><?php echo $meigen['iotw_cnt']; ?></span>件</div>
 			</div>
 			<div class="ha-area cf">
 				<ul>
-					<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/bt_haa.png" alt="はあ？"></a></li>
+                                        <li><a id="haa" href="./index.php" value="<?php echo $meigen['meigen_id']; ?>"><img src="../img/bt_haa.png" alt="はあ？"></a></li>
                                         <li><a id="iotw" href="./index.php" value="<?php echo $meigen['meigen_id']; ?>"><img src="../img/bt_impact.png" alt="ImpactOnTheWorld"></a></li>
 					<li><a href="./try.php?meigen_id=<?php print htmlspecialchars($meigen['meigen_id'], ENT_QUOTES, 'UTF-8'); ?>"><img src="../img/bt_wakatta.png" alt="雰囲気わかりました"></a> </li>
 				</ul>

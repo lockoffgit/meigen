@@ -2,6 +2,11 @@
 require('../libs/core.php');
 
 $meigen_id = isset($_REQUEST['meigen_id']) ? $_REQUEST['meigen_id'] : 1;  
+if(!ctype_digit($meigen_id)) {
+    echo '数字を入力してください';
+    exit();
+}
+
 // iotw登録処理
 $result = insertIotwData($meigen_id);
 exit();
