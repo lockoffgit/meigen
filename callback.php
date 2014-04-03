@@ -129,6 +129,7 @@ WHERE
 	AND members.del_flag = 0
 EOB;
 
+require_once('./libs/core.php');
 require_once('./libs/database.php');
 $objDb = new db_util();
 $result = $objDb->select($sql, array($facebook_user_id));
