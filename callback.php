@@ -98,7 +98,7 @@ $result = file_get_contents("https://graph.facebook.com/me/groups?access_token="
 $groups = json_decode($result);
 $inGroup = false;
 foreach ($groups->data as $group) {
-	if ($group->id == 1415888765328395) {
+	if ($group->id == 590989957588708) {
 		$inGroup = true;
 		break;
 	}
