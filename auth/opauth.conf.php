@@ -31,14 +31,24 @@ $config = array(
  * 
  * eg.
  */
+
  'Strategy' => array(
    'Facebook' => array(
-     'app_id' => '719076531447978',
-     'app_secret' => '340e5de253b47ad557147abc9d56e87a'
+     'app_id' => '662335227160663',
+     'app_secret' => '90c4a9bbe377e85806043b95f58f6edc',
+     'scope' => 'user_groups'
    )
   
   )
-
+/*
+ 'Strategy' => array(
+   'Facebook' => array(
+     'app_id' => '719076531447978',
+     'app_secret' => '8450821546f0d1cc4965c32f0132b133'
+   )
+  
+  )
+*/
  
 /*
 	'Strategy' => array(

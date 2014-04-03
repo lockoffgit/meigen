@@ -95,9 +95,7 @@ else{
 }
 
 $result = file_get_contents("https://graph.facebook.com/me/groups?access_token=" . $response['auth']['credentials']['token']);
-echo mb_detect_encoding($result);
 $groups = json_decode($result);
-
 $inGroup = false;
 foreach ($groups->data as $group) {
 	if ($group->id == 1415888765328395) {
