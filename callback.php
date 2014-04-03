@@ -94,22 +94,6 @@ else{
 	}
 }
 
-$result = file_get_contents("https://graph.facebook.com/me/groups?access_token=" . $response['auth']['credentials']['token']);
-$groups = json_decode($result);
-$inGroup = false;
-foreach ($groups->data as $group) {
-	if ($group->id == 590989957588708) {
-		$inGroup = true;
-		break;
-	}
-}
-
-if (!$inGroup) {
-	// グループに所属していないので利用不可能
-	echo "使えません";
-	exit();
-}
-
 // ログインユーザの社員情報を取得する	
 session_start();
 $facebook_user_id = $response['auth']['uid'];
@@ -134,9 +118,19 @@ require_once('./libs/database.php');
 $objDb = new db_util();
 $result = $objDb->select($sql, array($facebook_user_id));
 
-if (count($result) == 0) {
-	// 社員マスタに存在しないのでアプリを利用させない。
-	echo "利用できません。<br/>";
+$result = file_get_contents("https://graph.facebook.com/me/groups?access_token=" . $response['auth']['credentials']['token']);
+$groups = json_decode($result);
+$inGroup = false;
+foreach ($groups->data as $group) {
+	if ($group->id == 590989957588708) {
+		$inGroup = true;
+		break;
+	}
+}
+
+if (!$inGroup && count($result) == 0) {
+	// グループに所属していないので利用不可能
+	echo "使えません";
 	exit();
 }
 
