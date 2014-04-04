@@ -55,6 +55,11 @@ $(function(){
 
                         iotw_count = Number($(iotw_div_id).text());
                         $(iotw_div_id).text(iotw_count + 1);
+                        if (iotw_count == 10) {
+                            if (!confirm('殿堂入りなのでall@lockon.co.jpに送信します（嘘です）')) {
+                                return false;
+                            }
+                        }
                     },
                     error: function(ret){
                         alert(ret);
@@ -127,7 +132,7 @@ $(function(){
 ?>
 		<div class="meigen" id="meigen_list<?php echo $meigen['meigen_id']; ?>">
 			<div class="meigen-area cf">
-				<a href="./detail.php?meigen_id=<?php print htmlspecialchars($meigen['meigen_id'], ENT_QUOTES, 'UTF-8'); ?>">
+				<a href="./detail.php?meigen_id=<?php print $meigen['meigen_id']; ?>">
 				<div class="meigen-photo"><img src="../images/member/<?php echo $meigen['member_id']; ?>.jpg"></div>
 				<div class="meigen-txt">
                                     <h2 style="font-family: <?php echo $arrFont["{$meigen['font']}"];?>"><?php echo nl2br($meigen['meigen_text']); ?></h2>
