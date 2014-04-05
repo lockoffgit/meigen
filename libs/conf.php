@@ -7,10 +7,14 @@
  */
 
 define("MEIGEN_DELETE_LIFE", 5); // LIFE
+// TOPページURL
+define("MEIGEN_TOP_URL_HTTP", BASE_URL_HTTP . 'meigen/');
+// SESSION
+define("MEIGEN_SESSION_SORT_KEY", 'sort_key');
 
 $arrFont = array(
     'font1' => 'FLOPDesignFont',
-    'font2' => 'hkgyokk',
+    'font2' => 'kanji',
     'font3' => 'onryou',
 );
 

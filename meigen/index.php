@@ -1,3 +1,20 @@
+<?php
+    require_once("../libs/core.php");
+
+    // ソート内容を決定する
+    $sort_key = '';
+    $session = new session_util();
+    if (isset($_GET[MEIGEN_SESSION_SORT_KEY])) {
+        $sort_key = $_GET[MEIGEN_SESSION_SORT_KEY];
+        $session->setSession(MEIGEN_SESSION_SORT_KEY, $sort_key);
+    } else {
+        $sort_key = '';
+        $session->deleteSession(MEIGEN_SESSION_SORT_KEY);
+    }
+    $objDb = new db_util();
+    $arrMeigens = $objDb->getMeigenList(0, $sort_key);
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -111,23 +128,21 @@ $(function(){
 <body>
 <div class="container">
 	<header class="cf">
-            <div class="navbar-brand"> <a href="./"><img src="../img/title.png"></a></div>
+            <div class="navbar-brand"> <a href="<?php echo MEIGEN_TOP_URL_HTTP . '?' . MEIGEN_SESSION_SORT_KEY . '=new'; ?>"><img src="../img/title.png"></a></div>
 		<div class="navbar-entry"><a href="./nyuu.php"><img src="../img/bt_entry.png" alt="投稿する"></a></div>
 	</header>
 	<nav>
 		<ul class="navbar-nav cf">
-			<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/nav_ranking.png" alt="ランキング"></a></li>
-			<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/nav_cal.png" alt="カレンダー"></a></li>
-			<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/nav_death.png" alt="死にかけリスト"></a></li>
+			<li><a href="<?php echo MEIGEN_TOP_URL_HTTP . '?' . MEIGEN_SESSION_SORT_KEY . '=iotw'; ?>"><img src="../img/nav_ranking.png" alt="ランキング"></a></li>
+			<li><a href="<?php echo MEIGEN_TOP_URL_HTTP . '?' . MEIGEN_SESSION_SORT_KEY . '=new'; ?>"><img src="../img/nav_cal.png" alt="カレンダー"></a></li>
+			<li><a href="<?php echo MEIGEN_TOP_URL_HTTP . '?' . MEIGEN_SESSION_SORT_KEY . '=delete'; ?>"><img src="../img/nav_death.png" alt="死にかけリスト"></a></li>
 			<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/nav_grave.png" alt="墓地"></a></li>
 		</ul>
 	</nav>
 	<div id="meigen_box">
 <!--名言ここから-->
 <?php
-	require_once("../libs/core.php");
-	$objDb = new db_util();
-	$arrMeigens = $objDb->getMeigenList();
+
 	foreach($arrMeigens as $meigen){
 ?>
 		<div class="meigen" id="meigen_list<?php echo $meigen['meigen_id']; ?>">

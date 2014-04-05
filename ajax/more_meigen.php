@@ -1,12 +1,20 @@
 <?php
     require_once("../libs/core.php");
+    
+    // ソート内容を決定する
+    $session = new session_util();
+    $sort_key_session = $session->getSession(MEIGEN_SESSION_SORT_KEY);
+    $sort_key = isset($sort_key_session) ? $sort_key_session : '';
+
     $objDb = new db_util();
     $page_no = isset($_REQUEST['page_no']) ? $_REQUEST['page_no'] : 1;
-    $arrMeigens = $objDb->getMeigenList($page_no);
+    $arrMeigens = $objDb->getMeigenList($page_no, $sort_key);
+
+    $return = '';
     if(count($arrMeigens) > 0){
         foreach($arrMeigens as $meigen){
             $meigen_text = htmlspecialchars($meigen['meigen_text']);
-            $font = $arrFont["{$meigen['font']}"];
+            $font = isset($arrFont[$meigen['font']]) ? $arrFont[$meigen['font']] : $arrFont['font1'];
             $return .= <<<EOF
 		<div class="meigen" id="meigen_list{$meigen['meigen_id']}">
 			<div class="meigen-area cf">

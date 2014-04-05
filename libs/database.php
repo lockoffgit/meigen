@@ -45,8 +45,20 @@
             return $cmd->execute($val);
         }
         
-        function getMeigenList($page_no = 0){
+        function getMeigenList($page_no = 0, $sort_key = 'new'){
             $page_no = isset($_REQUEST['page_no']) ? ($_REQUEST['page_no'] * LIST_MAX) : 0;
+            $order_by = '';
+            switch ($sort_key) {
+                case 'iotw':
+                    $order_by = 'iotw_cnt DESC, mei.meigen_id DESC';                    
+                    break;
+                case 'delete':
+                    $order_by = 'delete_cnt DESC, mei.meigen_id DESC';                    
+                    break;
+                default :
+                    $order_by = 'mei.modified_at DESC, mei.meigen_id DESC';
+                    break;
+            }
 
             $query = "
             SELECT
@@ -77,11 +89,11 @@
                     mei.member_id = mem.member_id
                 )
             ORDER BY
-                mei.modified_at DESC
+                $order_by
                 LIMIT " . $page_no . ", " . LIST_MAX . "
             ";
-
             $arrMeigens = $this->select($query);
+            
             return $arrMeigens;
         }
         
