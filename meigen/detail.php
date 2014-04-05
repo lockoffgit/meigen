@@ -26,15 +26,15 @@ $tries = $objDb->select('select * from tries where meigen_id = ? order by try_id
 
 <div class="container">
 	<header class="cf">
-            <div class="navbar-brand"> <a href="./"><img src="../img/title.png"></a></div>
+            <div class="navbar-brand"> <a href="<?php echo MEIGEN_TOP_URL_HTTP . '?' . MEIGEN_SESSION_SORT_KEY . '=new'; ?>"><img src="../img/title.png"></a></div>
 		<div class="navbar-entry"><a href="./nyuu.php"><img src="../img/bt_entry.png" alt="投稿する"></a></div>
 	</header>
-	<nav>
+    	<nav>
 		<ul class="navbar-nav cf">
-			<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/nav_ranking.png" alt="ランキング"></a></li>
-			<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/nav_cal.png" alt="カレンダー"></a></li>
-			<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/nav_death.png" alt="死にかけリスト"></a></li>
-			<li><a href="javascript:alert('かみんぐすぅん');"><img src="../img/nav_grave.png" alt="墓地"></a></li>
+			<li><a href="<?php echo MEIGEN_TOP_URL_HTTP . '?' . MEIGEN_SESSION_SORT_KEY . '=iotw'; ?>"><img src="../img/nav_ranking.png" alt="ランキング"></a></li>
+			<li><a href="<?php echo MEIGEN_TOP_URL_HTTP . '?' . MEIGEN_SESSION_SORT_KEY . '=new'; ?>"><img src="../img/nav_cal.png" alt="カレンダー"></a></li>
+			<li><a href="<?php echo MEIGEN_TOP_URL_HTTP . '?' . MEIGEN_SESSION_SORT_KEY . '=delete'; ?>"><img src="../img/nav_death.png" alt="死にかけリスト"></a></li>
+                        <li><a href="../bochi/index.php"><img src="../img/nav_grave.png" alt="墓地"></a></li>
 		</ul>
 	</nav>
 	<div id="meigen_box">
