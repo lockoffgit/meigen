@@ -54,6 +54,7 @@ if (count($_POST) != 0) {
 </script>
 </head>
 <body>
+<?php include_once("../analyticstracking.php"); ?>
 <div class="container">
 	<header class="cf">
             <div class="navbar-brand"> <a href="./"><img src="../img/title.png"></a></div>

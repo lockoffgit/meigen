@@ -7,7 +7,7 @@
 </head>
 
 <body>
-
+<?php include_once("../analyticstracking.php"); ?>
 	<p>よくわかりました投稿</p>
 
 	<p>大は小をかねない</p>

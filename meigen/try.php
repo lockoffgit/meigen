@@ -69,6 +69,7 @@ $members = $objDb->select("SELECT * FROM members;");
 <link type="text/css" rel="stylesheet" href="../css/main.css" />
 </head>
 <body>
+<?php include_once("../analyticstracking.php"); ?>
 <div class="container">
 	<header class="cf">
             <div class="navbar-brand"> <a href="./"><img src="../img/title.png"></a></div>

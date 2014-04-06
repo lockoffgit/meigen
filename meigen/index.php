@@ -126,6 +126,7 @@ $(function(){
 </head>
 
 <body>
+<?php include_once("../analyticstracking.php"); ?>
 <div class="container">
 	<header class="cf">
             <div class="navbar-brand"> <a href="<?php echo MEIGEN_TOP_URL_HTTP . '?' . MEIGEN_SESSION_SORT_KEY . '=new'; ?>"><img src="../img/title.png"></a></div>

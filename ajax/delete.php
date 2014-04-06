@@ -29,8 +29,7 @@ function insertDeleteData($meigen_id) {
     $objDb = new db_util();
     
     $meigen_id_post = $meigen_id;
-    //$member_id = isset($_SESSION['member_id']) ? $_SESSION['member_id'] :1;
-    $member_id = 2; /* FIX: test用コード（認証系実装完了後に修正） */ 
+    $member_id = isset($_SESSION['member_id']) ? $_SESSION['member_id'] :1;
     $add_date = date("Y-m-d H:i:s");
     $addParams = array(
         "meigen_id"   => intval($meigen_id_post),
