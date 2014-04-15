@@ -14,6 +14,7 @@ $originalURI = $_SERVER['REQUEST_URI'];
 $log->addInfo('login_filter REQUEST_URI = ' . $originalURI);
 $isSkipAuth =
 	   (preg_match('|^/meigen/facebook.*$|', $originalURI))
+	|| (preg_match('|^/meigen/api.php.*$|', $originalURI))
 	|| (preg_match('|^/auth.*$|', $originalURI))
 	|| (preg_match('|^/callback.*$|', $originalURI));
 
