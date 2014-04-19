@@ -14,4 +14,7 @@ create index idx_tries_01 on tries( meigen_id );
 
 create index idx_tries_02 on tries( member_id );
 
+create index idx_deviceTokens_01 on deviceTokens( device_token_id );
+
+
 

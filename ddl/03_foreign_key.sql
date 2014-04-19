@@ -14,4 +14,4 @@ alter table tries add constraint fk_tries_01 foreign key( meigen_id ) references
 
 alter table tries add constraint fk_tries_02 foreign key( member_id ) references members( member_id );
 
-alter table device_token_id add constraint fk_deviceTokens_01 foreign key( device_token_id ) references deviceTokens( device_token_id );
+alter table deviceTokens add constraint fk_deviceTokens_01 foreign key( device_token_id ) references deviceTokens( device_token_id );
