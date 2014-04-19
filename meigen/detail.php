@@ -44,7 +44,7 @@ $tries = $objDb->select('select * from tries where meigen_id = ? order by try_id
 				<a href="./detail.php?meigen_id=<?php print $meigen['meigen_id']; ?>">
 				<div class="meigen-photo"><img src="../images/member/<?php echo $meigen['member_id']; ?>.jpg"></div>
 				<div class="meigen-txt">
-                                    <h2 style="font-family: <?php echo $arrFont["{$meigen['font']}"];?>"><?php echo nl2br($meigen['situation']); ?></h2>
+                                    <h2><?php echo nl2br($meigen['situation']); ?></h2>
 					<div class="meigen-detail">
 					<p class="date"><?php echo $meigen['created_at']; ?></p>
 					<p class="name"><?php echo $meigen['speaker']; ?></p>
@@ -56,7 +56,7 @@ $tries = $objDb->select('select * from tries where meigen_id = ? order by try_id
 				<div class="tamashii" id="haa_count<?php echo $meigen['meigen_id']; ?>">
                                 </div>
 			</div>
-		</div>
+                </div>
             <?php
             foreach ($tries as $try) {
             ?>
@@ -64,15 +64,15 @@ $tries = $objDb->select('select * from tries where meigen_id = ? order by try_id
 			<div class="meigen-area cf">
 				<div class="meigen-photo"><img src="../images/member/<?php echo $try['member_id']; ?>.jpg"></div>
 				<div class="meigen-txt">
-                                    <h2 style="font-family: <?php echo $arrFont["{$try['font']}"];?>">まだコメントは投稿できません</h2>
+                                    <h2>まだコメントは投稿できません</h2>
 				</div>
 			</div>
 		</div>
             <?php
             }
             ?>
-
+            <p><a href="javascript:history.back();">　　←戻る</a></p>
         </div>
-</div>
+    </div>
 </body>
 </html>

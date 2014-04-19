@@ -39,7 +39,7 @@ $graves = $objDb->select("SELECT * FROM graves ORDER BY grave_id DESC");
         ?>
                         <div class="meigen-area cf">
                                 <div class="meigen-txt">
-                                    <h2 style="font-family: <?php echo $arrFont["{$grave['font']}"];?>"><?php echo nl2br($grave['meigen_text']); ?></h2>
+                                    <h2><?php echo nl2br($grave['meigen_text']); ?></h2>
                                         <div class="meigen-detail">
                                         <p class="name"><?php echo $grave['speaker']; ?></p>
                                         <p class="date"><?php echo $grave['contributor']; ?></p>

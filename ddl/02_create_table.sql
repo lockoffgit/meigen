@@ -78,3 +78,10 @@ create table graves (
     modified_at date default null
 );
 
+drop table if exists deviceTokens;
+create table deviceTokens (
+    id int not null auto_increment primary key,
+    device_token_id varchar(1024) not null,
+    created_at date default null,
+    modified_at date default null
+);

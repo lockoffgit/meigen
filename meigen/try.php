@@ -91,10 +91,8 @@ $members = $objDb->select("SELECT * FROM members;");
 
 			<p>フォント(必須): </p>
 			<p>
-				<input type="radio" name="font" id="font" value="font1" /><label for="font">フォント1</label>
-				<input type="radio" name="font" id="font" value="font2" /><label for="font">フォント2</label>
-				<input type="radio" name="font" id="font" value="font3" /><label for="font">フォント3</label>
-			</p>
+                            <input type="radio" name="font" id="font" value="font1" checked /><label for="font">フォント1</label>
+                        </p>
 
 			<input type="submit" value="投稿する" />
 		</form>

@@ -151,7 +151,7 @@ $(function(){
 				<a href="./detail.php?meigen_id=<?php print $meigen['meigen_id']; ?>">
 				<div class="meigen-photo"><img src="../images/member/<?php echo $meigen['member_id']; ?>.jpg"></div>
 				<div class="meigen-txt">
-                                    <h2 style="font-family: <?php echo $arrFont["{$meigen['font']}"];?>"><?php echo nl2br($meigen['meigen_text']); ?></h2>
+                                    <h2><?php echo nl2br(htmlspecialchars($meigen['meigen_text'])); ?></h2>
 					<div class="meigen-detail">
 					<p class="date"><?php echo $meigen['created_at']; ?></p>
 					<p class="name"><?php echo $meigen['speaker']; ?></p>

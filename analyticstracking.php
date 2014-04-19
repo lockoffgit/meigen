@@ -1,4 +1,5 @@
 <?php
+$return = '';
 $return .= <<<EOF
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -7,6 +8,7 @@ $return .= <<<EOF
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-45241182-2', 'do-ing.net');
+  ga('require', 'displayfeatures');
   ga('send', 'pageview');
 
 </script>

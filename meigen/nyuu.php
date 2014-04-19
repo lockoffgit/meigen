@@ -68,6 +68,7 @@ if (count($_POST) != 0) {
 	<div id="meigen_box">
 
 	<form name="form_regist" action="./nyuu.php" method="POST">
+            <input type="hidden" name="font" value="font1" />
 		<p>発言者(必須): 
 			<select name="speaker" id="speaker">
 				<?php
@@ -97,13 +98,6 @@ if (count($_POST) != 0) {
 		<!-- <p>写真の選択: <input type="file" name="img" id="img" /></p> -->
 
 		<p>名言(必須): <input type="text" name="meigen_text" id="meigen_text" maxlength="255" /></p>
-
-		<p>フォント(必須): </p>
-		<p>
-                    <?php foreach ($arrFont as $key => $val) { 
-                        print ('<div style="font-family: ' . $val .'" /><input type="radio" name="font" id="font" value="' . $key .'" /><label for="font">ふぉんと</label></div>');
-                    } ?>
-		</p>
 
 		<p>名言の背景(必須): </p>
 		<p><textarea name="situation" id="situation" rows="5" column="20" maxlength="255"></textarea></p>
