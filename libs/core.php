@@ -13,7 +13,7 @@
     // リスト取得時の取得件数
     define("LIST_MAX", 10);
     // ベースURL
-    define("BASE_URL_HTTP", 'http://localhost:37489/meigenkun/');
+    define("BASE_URL_HTTP", 'http://meigen.do-ing.net/');
     // GCM 通知API　URL
     define("MEIGEN_GCM_API_URL", "https://android.googleapis.com/gcm/send");
     // GCM push通知API　KEY

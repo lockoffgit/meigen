@@ -1,6 +1,5 @@
 <?php
 require_once '../libs/core.php';
-require_once "HTTP/Request.php";
 
 $objDb = new db_util();
 if (count($_POST) != 0) {
@@ -61,20 +60,6 @@ function pushGCM($meigen_text = '') {
         $objGcm->set_api_key(MEIGEN_GCM_API_KEY);
         $objGcm->set_extract( "message", mb_strimwidth($meigen_text, 0, 1024, "・・・", "UTF-8") );
         $objGcm->send_message( $device_token_ids );
-/*
-        $rq = new HTTP_Request(MEIGEN_GCM_API_URL);
-        $rq->setMethod(HTTP_REQUEST_METHOD_POST);
-        $rq->addHeader("Authorization", "key=" . MEIGEN_GCM_API_KEY);
-        $rq->addHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-        $rq->addPostData("registration_ids", $device_token_ids);
-        $rq->addPostData("collapse_key", "1");
-        $rq->addPostData("data.message", mb_strimwidth($meigen_text, 0, 1024, "・・・", "UTF-8"));
-        if (!PEAR::isError($rq->sendRequest())) {
-            print "\n" . $rq->getResponseBody();
-            exit;
-        }
- * 
- */
     }
     return true;
 }

@@ -21,7 +21,7 @@ $graves = $objDb->select("SELECT * FROM graves ORDER BY grave_id DESC");
 <div class="container">
 	<header class="cf">
             <div class="navbar-brand"> <a href="<?php echo MEIGEN_TOP_URL_HTTP . '?' . MEIGEN_SESSION_SORT_KEY . '=new'; ?>"><img src="../img/title.png"></a></div>
-		<div class="navbar-entry"><a href="./nyuu.php"><img src="../img/bt_entry.png" alt="投稿する"></a></div>
+		<div class="navbar-entry"><a href="../meigen/nyuu.php"><img src="../img/bt_entry.png" alt="投稿する"></a></div>
 	</header>
     	<nav>
 		<ul class="navbar-nav cf">
