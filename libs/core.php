@@ -13,9 +13,14 @@
     // リスト取得時の取得件数
     define("LIST_MAX", 10);
     // ベースURL
-    define("BASE_URL_HTTP", 'http://meigen.do-ing.net/');
-  
+    define("BASE_URL_HTTP", 'http://localhost:37489/meigenkun/');
+    // GCM 通知API　URL
+    define("MEIGEN_GCM_API_URL", "https://android.googleapis.com/gcm/send");
+    // GCM push通知API　KEY
+    define("MEIGEN_GCM_API_KEY", "AIzaSyCFFp7ZSMAYVaAz_MIdFaww-OLkhG3Iwww");
+
     require_once("database.php");
     require_once("conf.php");
+    require_once("gcm.php");
     require_once("session.php");
-?>
+
