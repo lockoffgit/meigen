@@ -16,13 +16,13 @@
 
         case 'one' :
             $arrMeigen = $objDb->getMeigenData($_REQUEST['meigen_id']);
-            $arrMeigen['meigen_image_url'] = 'http://news.utamap.com/_upimg/04400/aa4400_02_0622233106.jpg';
+            $arrMeigen['meigen_image_url'] = "http://meigen.do-ing.net/images/member/" . $arrMeigen['member_id'] . ".jpg";
             echo json_decode($arrMeigen);
         break;
     }
     function imageInsert($array){
         foreach($array as $k => $v){
-            $array[$k]['meigen_image_url'] = 'http://news.utamap.com/_upimg/04400/aa4400_02_0622233106.jpg';
+            $array[$k]['meigen_image_url'] = "http://meigen.do-ing.net/images/member/" . $arrMeigen[$k]['member_id'] . ".jpg";
         }
         return $array;
     }
